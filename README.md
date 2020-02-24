@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/fc883449-dd65-4d1e-9fe5-43771a762ebc/deploy-status)](https://app.netlify.com/sites/sava-jaz365/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/258a10dd-ef97-4e72-80ed-9d7efc84d8a8/deploy-status)](https://app.netlify.com/sites/hugo-template/deploys)
 
 # Hugo Template
 
