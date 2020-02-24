@@ -1,0 +1,82 @@
+$content-width: 1220px;
+$columns-count: 12;
+
+.container {
+  padding: 0 24px;
+  width: 100%;
+  max-width: $content-width;
+  margin: 0 auto;
+
+  @include breakpoint('small') {
+    padding: 0 40px;
+  }
+
+  &--no-padding {
+    padding: 0;
+
+    @include breakpoint('small') {
+      padding: 0 40px;
+    }
+  }
+
+  &--narrow {
+    max-width: 850px;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat($columns-count, 1fr);
+  grid-gap: 30px 15px;
+
+  @include breakpoint('small') {
+    grid-template-columns: repeat($columns-count, 1fr);
+    grid-gap: 80px 30px;
+  }
+}
+
+@for $i from 1 through $columns-count {
+  .order-#{$i} {
+    order: #{$i};
+  }
+
+  .col-#{$i} {
+    grid-column-end: span #{$i};
+  }
+}
+
+@include breakpoint('small') {
+  @for $i from 1 through $columns-count {
+    .order-sm-#{$i} {
+      order: #{$i};
+    }
+
+    .col-sm-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+}
+
+@include breakpoint('medium') {
+  @for $i from 1 through $columns-count {
+    .order-md-#{$i} {
+      order: #{$i};
+    }
+
+    .col-md-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+}
+
+@include breakpoint('large') {
+  @for $i from 1 through $columns-count {
+    .order-lg-#{$i} {
+      order: #{$i};
+    }
+
+    .col-lg-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
+}

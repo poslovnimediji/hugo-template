@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>{{ .Title }} | {{ .Site.Title }}</title>
+  <meta name="title" content="{{ .Site.Title }}">
+  <meta name="description" content="{{ .Site.Params.description }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaz365.si/">
+  <meta property="og:title" content="{{ .Site.Title }}">
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  <!-- <meta property="og:image" content="https://regia.si/media/brand/og-1200x630.jpg"> -->
+
+  {{ $sass := resources.Get "styles/style.scss" }}
+  {{ $style := $sass | resources.ToCSS }}
+  <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Google Analytics -->
+  {{ if eq (getenv "HUGO_ENV") "production" }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '{{ .Site.GoogleAnalytics }}');
+    </script>
+  {{ end }}
+  <!-- / Google Analytics -->
+
+</head>
+
+
+<body>
+
+{{ partialCached "unsupported-browser.html" . }}
+
+  <div class="body-overflow">
+    {{ partial "header.html" . }}
+
+    {{ block "main" . }}{{ end }}
+
+    {{ partial "footer.html" . }}
+    {{ partial "cookies.html" . }}
+  </div>
+
+  <script type="module" type="text/javascript" src="/scripts/main.js"></script>
+
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

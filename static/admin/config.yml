@@ -1,0 +1,28 @@
+backend:
+  name: git-gateway
+  branch: master
+  squash_merges: true
+
+display_url: https://jaz365.si
+logo_url: /media/brand/logo.png
+media_folder: "static/media/uploads"
+public_folder: "/media/uploads"
+# publish_mode: editorial_workflow
+
+collections:
+  - name: "blog"
+    format: yaml-frontmatter
+    label: "Blog"
+    label_singular: "article"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    filter: {field: "tags", value: "blog"}
+    preview_path: "blog/{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Thumbnail", name: "thumbnail", widget: "image", allow_multiple: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "hidden", default: ["blog"]}
