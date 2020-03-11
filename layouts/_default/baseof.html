@@ -1,3 +1,13 @@
+{{ $ogDesc := .Site.Params.description }}
+{{ with .Description }}
+  {{ $ogDesc = . }}
+{{ end }}
+
+{{ $ogImage := "media/brand/og-image.webp" }}
+{{ with .Params.thumbnail }}
+  {{ $ogImage = . }}
+{{ end }}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +18,15 @@
 
   <!-- Primary Meta Tags -->
   <title>{{ .Title }} | {{ .Site.Title }}</title>
-  <meta name="title" content="{{ .Site.Title }}">
-  <meta name="description" content="{{ .Site.Params.description }}">
+  <meta name="title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta name="description" content="{{ $ogDesc }}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jaz365.si/">
-  <meta property="og:title" content="{{ .Site.Title }}">
-  <meta property="og:description" content="{{ .Site.Params.description }}">
-  <!-- <meta property="og:image" content="https://regia.si/media/brand/og-1200x630.jpg"> -->
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta property="og:description" content="{{ $ogDesc }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage }}">
 
   {{ $sass := resources.Get "styles/style.scss" }}
   {{ $style := $sass | resources.ToCSS }}
