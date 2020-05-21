@@ -3,7 +3,7 @@ backend:
   branch: master
   squash_merges: true
 
-display_url: https://jaz365.si
+# display_url:
 logo_url: /media/brand/logo.png
 media_folder: "static/media/uploads"
 public_folder: "/media/uploads"
