@@ -2,4 +2,4 @@
 title: "Domov"
 ---
 
-Hugo Template
+![Hugo Cocktail](/media/uploads/hugo.jpg)

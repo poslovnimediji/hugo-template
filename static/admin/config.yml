@@ -8,6 +8,9 @@ logo_url: /media/brand/logo.png
 media_folder: "static/media/uploads"
 public_folder: "/media/uploads"
 # publish_mode: editorial_workflow
+slug:
+  encoding: "ascii"
+  clean_accents: true
 
 collections:
   - name: "blog"
