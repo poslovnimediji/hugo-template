@@ -4,7 +4,7 @@ backend:
   squash_merges: true
 
 # display_url:
-logo_url: /media/brand/logo.png
+logo_url: /media/brand/logo.svg
 media_folder: "static/media/uploads"
 public_folder: "/media/uploads"
 # publish_mode: editorial_workflow

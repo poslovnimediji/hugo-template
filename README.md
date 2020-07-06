@@ -39,6 +39,18 @@ There is no development URL out of the box. To create this environment, follow t
 3. Under Branch deploys select Let me add individual branches and add `develop`
 4. push some code to `develop` branch and see it on https://develop--YOUR-SITE-NAME.netlify.app
 
+## Add Neltify CMS
+
+In Netlify app under your site:
+
+1. Under Identity, click Enable identity
+2. then click Settings and usage, go to the bottom and click Enable Git Gateway
+3. Go to Github -> click on profile picture and select settings on the dropdown. Go to Developer settings -> personal access tokens and click Generate new token
+4. under note put `site note - git gateway` and select repo group of credentials. Click Generate token
+5. Copy the token and go pack to Netlify dashboard. Under Git Gateway click Edit settings and paste in your new access token.
+6. open terminal in your project directory and say `netlify link`. Select the mataching site on Netlify. You need Netlify CLI for this
+7. Now go back to Identity tab and invite users.
+
 ## Built With
 
 * [Netlify](https://www.netlify.com)
