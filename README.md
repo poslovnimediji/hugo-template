@@ -4,8 +4,9 @@
 
 Template project for sites built with Hugo & Netlify
 
-* Client: PM, Poslovni mediji d.o.o.
-* Development URL: https://develop--hugo-template.netlify.com/
+* Client:
+* Netlify URL: https://hugo-template.netlify.app/
+* Production URL:
 
 ## Getting Started
 
@@ -27,7 +28,16 @@ and open your local site on `http://localhost:1313/`
 
 ## Deployment
 
-To deploy to Development URL, push to `develop` branch
+To deploy to production, push to `master` branch
+
+### Development URL
+
+There is no development URL out of the box. To create this environment, follow these steps:
+
+1. create branch `develop`
+2. Go to Netlify dashboard -> your site -> Settings -> Build & deploy -> Deploy contexts -> Edit settings
+3. Under Branch deploys select Let me add individual branches and add `develop`
+4. push some code to `develop` branch and see it on https://develop--YOUR-SITE-NAME.netlify.app
 
 ## Built With
 
