@@ -60,6 +60,11 @@ In Netlify app under your site:
 5. `netlify lm:setup`
 6. commit and push
 
+You should see your uploads under the Large Media tab in Netlify dashboard. It takes some time for netlify to process media. It if doesn't, try
+
+1. `git lfs update --force`
+2. `git lfs push --all origin master`
+
 ## Built With
 
 * [Netlify](https://www.netlify.com)
