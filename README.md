@@ -51,6 +51,15 @@ In Netlify app under your site:
 6. open terminal in your project directory and say `netlify link`. Select the mataching site on Netlify. You need Netlify CLI for this
 7. Now go back to Identity tab and invite users.
 
+## Enable Netlify Large Media
+
+1. `git lfs install`
+2. `git lfs track "static/media/uploads/**"`
+3. commit and push
+4. `netlify link`
+5. `netlify lm:setup`
+6. commit and push
+
 ## Built With
 
 * [Netlify](https://www.netlify.com)
