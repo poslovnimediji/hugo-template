@@ -4,6 +4,8 @@
   "description": "Template project for sites built with Hugo & Netlify",
   "main": "index.js",
   "scripts": {
+    "dev": "hugo server",
+    "build": "hugo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
