@@ -22,7 +22,7 @@ If this is your first time running the project, run
 
 When you have that, just run
 
-`hugo server`
+`hugo server` or `npm run dev`
 
 and open your local site on `http://localhost:1313/`
 
