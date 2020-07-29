@@ -64,7 +64,6 @@ In Netlify app under your site:
 4. `netlify link`
 5. `netlify lm:setup`
 6. commit and push
-7. add environment variable to Netlify: GIT_LFS_ENABLED = true
 
 You should see your uploads under the Large Media tab in Netlify dashboard. It takes some time for netlify to process media. It if doesn't, try
 
