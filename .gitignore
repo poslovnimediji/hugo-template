@@ -1,6 +1,5 @@
 /public/
 /resources/_gen/
-.netlify
 node_modules
 static/node_modules
 /.idea/
