@@ -1,6 +1,7 @@
 languageCode = "sl-sl"
 title = "Hugo Template"
-baseURL = "https://umfo-www.netlify.com/"
+# baseURL = "https://umfo-www.netlify.com/"
+# base url is set in netlify.toml
 googleAnalytics = ""
 disableFastRender = true
 # enableRobotsTXT = true
