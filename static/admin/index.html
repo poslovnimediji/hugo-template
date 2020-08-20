@@ -12,5 +12,37 @@
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
     <!-- Add editor components for Hugo shortcodes -->
     <script src="https://sharadcodes.github.io/hugo-shortcodes-netlify-cms/dist/hugo_shortcodes_netlify_cms.js"></script>
+
+
+    <script>
+      CMS.registerEditorComponent({
+        id: "button",
+        label: "Button",
+        fields: [
+          {name: 'title', label: 'Title', widget: 'string'},
+          {name: 'href', label: 'Href', widget: 'string'},
+          {name: 'target', label: 'Target', widget: 'string'},
+          {name: 'extraClass', label: 'Extra Classes', widget: 'string'}
+        ],
+        pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
+        fromBlock: function(match) {
+          return {
+            href: match[1],
+            target: match[2],
+            extraClass: match[3],
+            inner: match[4]
+          };
+        },
+        toBlock: function(obj) {
+          return `{{< button href="${href}" target="${target}" extraClass="${extraClass}" >}}${inner}{{< /button >}}`;
+        },
+        toPreview: function(obj) {
+          return (
+            `<a href="${href}" target="${target}" class="button ${extraClass}">${inner}</a>`
+          );
+        }
+      });
+      </script>
+
   </body>
 </html>
