@@ -50,11 +50,11 @@ In Netlify app under your site:
 5. Copy the token and go pack to Netlify dashboard. Under Git Gateway click Edit settings and paste in your new access token.
 6. open terminal in your project directory and say `netlify link`. Select the mataching site on Netlify. You need Netlify CLI for this
 7. Under identity settings set email tempate paths for all four tempaltes:
-   Invitation template: `/emails/invitation.html`
-   Confirmation template: `/emails/confirmation.html`
-   Recovery template: `/emails/password-recovery.html`
-   Email change template: `/emails/email-change.html`
-7. Now go back to Identity tab and invite users.
+   - Invitation template: `/emails/invitation.html`
+   - Confirmation template: `/emails/confirmation.html`
+   - Recovery template: `/emails/password-recovery.html`
+   - Email change template: `/emails/email-change.html`
+8. Now go back to Identity tab and invite users.
 
 ## Enable Netlify Large Media
 
