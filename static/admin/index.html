@@ -10,29 +10,7 @@
   <body>
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-
-    <!-- Add Youtube button to editor (and example for adding other editor components) -->
-    <!-- Read more at: https://www.netlifycms.org/docs/custom-widgets/ -->
-    <script>
-      CMS.registerEditorComponent({
-        id: "youtube",
-        label: "Youtube",
-        fields: [{name: 'id', label: 'Youtube Video ID', widget: 'string'}],
-        pattern: /^youtube (\S+)$/,
-        fromBlock: function(match) {
-          return {
-            id: match[1]
-          };
-        },
-        toBlock: function(obj) {
-          return 'youtube ' + obj.id;
-        },
-        toPreview: function(obj) {
-          return (
-            '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
-          );
-        }
-      });
-      </script>
+    <!-- Add editor components for Hugo shortcodes -->
+    <script src="https://sharadcodes.github.io/hugo-shortcodes-netlify-cms/dist/hugo_shortcodes_netlify_cms.js"></script>
   </body>
 </html>
