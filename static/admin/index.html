@@ -22,7 +22,7 @@
           {name: 'inner', label: 'Text', widget: 'string'},
           {name: 'href', label: 'Link', widget: 'string'},
           {name: 'target', label: 'Target', widget: 'string'},
-          {name: 'extraClass', label: 'Extra classes (separate with space)', widget: 'string'}
+          {name: 'extraClass', label: 'Class', widget: 'string'}
         ],
         pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
         fromBlock: function(match) {
