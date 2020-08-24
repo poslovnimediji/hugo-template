@@ -19,10 +19,10 @@
         id: "button",
         label: "Button",
         fields: [
-          {name: 'title', label: 'Title', widget: 'string'},
-          {name: 'href', label: 'Href', widget: 'string'},
+          {name: 'inner', label: 'Text', widget: 'string'},
+          {name: 'href', label: 'Link', widget: 'string'},
           {name: 'target', label: 'Target', widget: 'string'},
-          {name: 'extraClass', label: 'Extra Classes', widget: 'string'}
+          {name: 'extraClass', label: 'Extra classes (separate with space)', widget: 'string'}
         ],
         pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
         fromBlock: function(match) {
@@ -34,11 +34,11 @@
           };
         },
         toBlock: function(obj) {
-          return `{{< button href="${href}" target="${target}" extraClass="${extraClass}" >}}${inner}{{< /button >}}`;
+          return `{{< button href="${obj.href}" target="${obj.target}" extraClass="${obj.extraClass}" >}}${obj.inner}{{< /button >}}`;
         },
         toPreview: function(obj) {
           return (
-            `<a href="${href}" target="${target}" class="button ${extraClass}">${inner}</a>`
+            `<a href="${obj.href}" target="${obj.target}" class="button ${obj.extraClass}">${obj.inner}</a>`
           );
         }
       });
