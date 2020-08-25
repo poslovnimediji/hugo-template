@@ -1,9 +1,27 @@
 {{ define "main" }}
   <main>
     <div class="container">
+      <br>
       <h1>{{ .Title }}</h1>
-  
-      {{ .Content }}
+      <br>
+
+      <div class="grid">
+        <div class="col-12 col-sm-6">
+          {{ .Content }}
+        </div>
+      </div>
+
+      <br>
+
+      <div class="grid">
+        {{ range .Pages }}
+          <article class="col-12 col-sm-6">
+            <h4>{{ .Title }}</h4>
+            <p>{{ .Description }}</p>
+            <a href="{{ .Permalink }}">Več</a>
+          </article>
+        {{ end }}
+      </div>
     </div>
   </main>
 {{ end }}
