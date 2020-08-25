@@ -64,7 +64,8 @@
     {{ partial "cookies.html" . }}
   </div>
 
-  <script type="module" type="text/javascript" src="/scripts/main.js"></script>
+  {{ $cookiesJs := resources.Get "scripts/cookies.js" }}
+  <script type="module" type="text/javascript" src="{{ $cookiesJs.Permalink }}"></script>
 
 </body>
 </html>

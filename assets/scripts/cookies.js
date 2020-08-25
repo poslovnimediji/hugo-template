@@ -1,4 +1,4 @@
-export default function cookies() {
+function cookies() {
   const cookiesEl = document.querySelector('.cookies');
   const consentBtn = cookiesEl.querySelector('.confirm-cookies');
 
@@ -21,3 +21,5 @@ export default function cookies() {
     init();
   }
 }
+
+cookies();
