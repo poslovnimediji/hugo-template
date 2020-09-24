@@ -30,9 +30,5 @@
     "stylelint-config-standard": "^19.0.0",
     "stylelint-scss": "^3.18.0"
   },
-  "dependencies": {
-    "@netlify/plugin-lighthouse": "^1.4.2",
-    "netlify-plugin-a11y": "0.0.12",
-    "netlify-plugin-html-validate": "^0.1.1"
-  }
+  "dependencies": {}
 }

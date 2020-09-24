@@ -1,8 +1,8 @@
 [build]
   publish = "public"
-  command = "npm run lint && chmod +x ./bin/build.sh && ./bin/build.sh"
+  # command = "npm run lint && chmod +x ./bin/build.sh && ./bin/build.sh"
   # for local netlify build
-  # command = "npm run lint && hugo"
+  command = "npm run lint && hugo"
 
 [context.production.environment]
   HUGO_VERSION = "0.73.0"
