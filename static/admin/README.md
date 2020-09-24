@@ -1,6 +1,6 @@
 # Admin
 
-This is the configuration folder for [Netlify CMS](https://www.netlifycms.org/docs/intro/). You can configure the folders and fields in `cnofig.yml` and add custom editor components in `admin.html`.
+This is the configuration folder for [Netlify CMS](https://www.netlifycms.org/docs/intro/). You can configure the folders and fields in `config.yml` and add custom editor components in `admin.html`.
 
 ## local development
 
