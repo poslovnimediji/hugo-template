@@ -18,9 +18,9 @@
 
 
 
-  "Breakpoints": {
+  "Breakpoint": {
     "scope": "scss",
-    "prefix": "pm-breakpoint",
+    "prefix": "breakpoint",
     "body": [
       "@include breakpoint('${1|small,medium,large|}') {",
       "\t$2",
@@ -28,34 +28,45 @@
     ],
     "description": "Breakpoint mixin."
   },
-  
-  "document querySelector": {
+
+  "Breakpoint-down": {
+    "scope": "scss",
+    "prefix": "breakpoint-down",
+    "body": [
+      "@include breakpoint-down('${1|small,medium,large|}') {",
+      "\t$2",
+      "}"
+    ],
+    "description": "Breakpoint-down mixin."
+  },
+
+  "document.querySelector": {
     "scope": "javascript,typescript",
     "prefix": "docqs",
     "body": [
-      "${1:document}.querySelector('$1');"
+      "${1:document}.querySelector('$2');"
     ],
-    "description": "document querySelector"
+    "description": "select the first element matching the selector"
   },
 
-  "document querySelectorAll": {
+  "document.querySelectorAll": {
     "scope": "javascript,typescript",
-    "prefix": "dqsa",
+    "prefix": "docqsa",
     "body": [
       "${1:document}.querySelectorAll('$2');"
     ],
-    "description": "document querySelectorAll"
+    "description": "select all elements matching the selector"
   },
 
-  "window add event listener": {
+  "document.addEventListener": {
     "scope": "javascript,typescript",
-    "prefix": "wael",
+    "prefix": "docael",
     "body": [
-      "${1:window}.addEventListener('$2', () => {",
+      "${1:document}.addEventListener('$2', () => {",
       "\t$3",
       "});"
     ],
-    "description": "document querySelectorAll"
+    "description": "Add javascript event listener to an element"
   }
 
 }
