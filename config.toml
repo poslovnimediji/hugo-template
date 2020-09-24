@@ -1,12 +1,24 @@
-languageCode = "sl-sl"
-title = "Hugo Template"
 # baseURL is set automatically in netlify.toml
+title = "Hugo Template"
 googleAnalytics = ""
 disableFastRender = true
 # enableRobotsTXT = true
 
+languageCode = "sl-sl"
+defaultContentLanguage = "sl"
+
 [params]
-  description = ""
+  description = "To je opis te spletne strani"
 
 [markup.goldmark.renderer]
-  unsafe= true
+  unsafe = true
+
+# Example of a multilang setting
+# [languages]
+#   [languages.sl]
+#     languageName = "Slovenščina"
+#     languageCode = "sl"
+#     contentDir = "content/sl"
+#     weight = 1
+#     [languages.sl.params]
+#       description = "To je opis te spletne strani"
