@@ -5,7 +5,8 @@ function cookies() {
   const init = () => {
     const cookieExists = document.cookie.match(/^(.*;)?\s*cookies\s*=\s*[^;]+(.*)?$/);
 
-    if (!cookieExists) {
+    if (!cook
+      ieExists) {
       cookiesEl.classList.remove('is-hidden');
 
       consentBtn.addEventListener('click', () => {
