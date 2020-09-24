@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "hugo server",
     "build": "hugo",
-    "lint": "eslint . & npx stylelint 'assets/styles/*.scss'",
+    "lint": "eslint . && npx stylelint 'assets/styles/*.scss'",
     "htmlhint": "npx htmlhint 'public/*.html' 'public/**/*.html'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
