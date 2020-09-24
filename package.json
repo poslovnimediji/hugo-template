@@ -1,6 +1,6 @@
 {
   "name": "hugo-template",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Template project for sites built with Hugo & Netlify",
   "main": "index.js",
   "scripts": {
