@@ -16,35 +16,6 @@
     <script src="https://sharadcodes.github.io/hugo-shortcodes-netlify-cms/dist/hugo_shortcodes_netlify_cms.js"></script>
 
     <!-- Add editor components for custom site shortcodes -->
-    <script>
-      CMS.registerEditorComponent({
-        id: "button",
-        label: "Button",
-        fields: [
-          {name: 'inner', label: 'Text', widget: 'string'},
-          {name: 'href', label: 'Link', widget: 'string'},
-          {name: 'target', label: 'Target', widget: 'string'},
-          {name: 'extraClass', label: 'Class', widget: 'string'}
-        ],
-        pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
-        fromBlock: function(match) {
-          return {
-            href: match[1],
-            target: match[2],
-            extraClass: match[3],
-            inner: match[4]
-          };
-        },
-        toBlock: function(obj) {
-          return `{{< button href="${obj.href}" target="${obj.target}" extraClass="${obj.extraClass}" >}}${obj.inner}{{< /button >}}`;
-        },
-        toPreview: function(obj) {
-          return (
-            `<a href="${obj.href}" target="${obj.target}" class="button ${obj.extraClass}">${obj.inner}</a>`
-          );
-        }
-      });
-      </script>
-
+    <script src="./editor-components/button.js"></script>
   </body>
 </html>
