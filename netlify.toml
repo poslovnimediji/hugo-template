@@ -20,7 +20,10 @@
 
   [plugins.inputs]
     checkPaths = ['/']
-    ignoreDirectories = ['/admin']
+    ignoreDirectories = [
+      '/public/emails/'
+    ]
+    resultMode = "warn"
 
 [[plugins]]
   package = "netlify-plugin-checklinks"
