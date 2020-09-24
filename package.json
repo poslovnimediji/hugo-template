@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "hugo server",
     "build": "hugo",
-    "lint": "eslint .",
+    "lint": "eslint . & npx stylelint \"assets/styles/*.scss\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
