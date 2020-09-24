@@ -21,7 +21,8 @@
   [plugins.inputs]
     checkPaths = ['/']
     ignoreDirectories = [
-      '/public/emails/'
+      '/emails',
+      '/admin'
     ]
     resultMode = "warn"
 
