@@ -1,0 +1,7 @@
+# Admin
+
+This is the configuration folder for [Netlify CMS](https://www.netlifycms.org/docs/intro/). You can configure the folders and fields in `cnofig.yml` and add custom editor components in `admin.html`.
+
+## local development
+
+You can run the CMS locally by running `npx netlify-cms-proxy-server`. Make sure that `local_backend: true` is in `config.yml`.

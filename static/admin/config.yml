@@ -15,19 +15,23 @@ slug:
   clean_accents: true
 
 collections:
-  - name: "blog"
-    format: yaml-frontmatter
-    label: "Blog"
+  - name: "articles"
+    label: "Articles"
     label_singular: "article"
-    folder: "content/blog"
+    folder: "content/articles"
     create: true
     slug: "{{slug}}"
-    filter: {field: "tags", value: "blog"}
-    preview_path: "blog/{{slug}}"
+
+    # This is hack to remove index.md from the list. Add tag "article" to all articles except the index, and show only pages with this tag.
+    filter: {field: "tags", value: "article"}
+
+    # Enable this for a prewiew on the right when editing. You will have to create a preview template for it to make sense.
     editor:
       preview: false
+
+    # more about widgets: https://www.netlifycms.org/docs/widgets/
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image", allow_multiple: false}
       - {label: "Content", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "hidden", default: ["blog"]}
+      - {label: "Tags", name: "tags", widget: "hidden", default: ["article"]}
