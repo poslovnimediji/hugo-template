@@ -34,10 +34,6 @@
   package = "netlify-plugin-html-validate"
   # https://github.com/oliverroick/netlify-plugin-html-validate#readme
 
-  [plugins.inputs]
-    ext = "html"
-    config = ".htmlvalidate.json"
-
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
   # https://github.com/netlify-labs/netlify-plugin-lighthouse#readme
