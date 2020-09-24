@@ -3,7 +3,7 @@
   {{ $ogDesc = . }}
 {{ end }}
 
-{{ $ogImage := "media/brand/og-image.webp" }}
+{{ $ogImage := "/media/brand/og-image.jpg" }}
 {{ with .Params.thumbnail }}
   {{ $ogImage = . }}
 {{ end }}
@@ -65,7 +65,7 @@
   </div>
 
   {{ $cookiesJs := resources.Get "scripts/cookies.js" }}
-  <script type="text/javascript" src="{{ $cookiesJs.Permalink }}"></script>
+  <script src="{{ $cookiesJs.Permalink }}"></script>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 [build]
   publish = "public"
-  command = "npm run lint && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "npm run lint && chmod +x ./bin/build.sh && ./bin/build.sh"
+  # for local netlify build
+  # command = "npm run lint && hugo"
 
 [context.production.environment]
   HUGO_VERSION = "0.73.0"
@@ -22,7 +24,8 @@
     checkPaths = ['/']
     ignoreDirectories = [
       '/emails',
-      '/admin'
+      '/admin',
+      '/public/admin',
     ]
     resultMode = "warn"
 
