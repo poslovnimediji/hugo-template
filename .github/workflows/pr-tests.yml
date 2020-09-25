@@ -1,10 +1,25 @@
-name: test-pr
-on: [pull_request]
+name: Pull Request Tests
+on: [push]
 jobs:
-  a11y:
+  # a11y:
+  #   name: Accessibility
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #     - run: npm install -g bats
+  #     - run: bats -v
+  # links:
+  #   name: Broken links
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v1
+  #     - run: npm install -g bats
+  #     - run: bats -v
+  lighthouse:
+    name: Lighthouse
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+      - name: Lighthouse CI Action
+        uses: treosh/lighthouse-ci-action@v3
