@@ -1,25 +1,29 @@
-name: Pull Request Tests
-on: [push]
+name: Pull Request Audits
+on: pull_request
 jobs:
-  # a11y:
-  #   name: Accessibility
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #     - run: npm install -g bats
-  #     - run: bats -v
-  # links:
-  #   name: Broken links
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v1
-  #     - run: npm install -g bats
-  #     - run: bats -v
-  lighthouse:
-    name: Lighthouse
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Lighthouse CI Action
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install & Build
+        run: |
+          yarn install
+          yarn build
+      - name: Wait for the Netlify Preview
+        uses: jakepartusch/wait-for-netlify-action@v1
+        id: netlify
+        with:
+          site_name: 'hugo-template'
+      - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v3
+        with:
+          urls: |
+            ${{ steps.netlify.outputs.url }}
+            ${{ steps.netlify.outputs.url }}/articles/
+          budgetPath: ./budget.json
+          uploadArtifacts: true
