@@ -37,7 +37,6 @@ jobs:
           site_name: "hugo-template"
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - name: Install Hyperlink
-        run: npm install -g hyperlink
-      - name: Run Hyperlink
-        run: hyperlink ${{ steps.netflify.outputs.url }}
+      - run: npm install hyperlink tap-dot
+      - run: node_modules/.bin/hyperlink ${{ steps.netflify.outputs.url }} -r | tee
+      - run: site.tap | node_modules/.bin/tap-dot
