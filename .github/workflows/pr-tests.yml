@@ -6,6 +6,7 @@ jobs:
     name: Lighthouse
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
       - name: Wait for Netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
@@ -14,12 +15,9 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Run Lighthouse audit
-        uses: treosh/lighthouse-ci-action@v3
-        with:
-          urls: |
-            ${{ steps.netflify.outputs.url }}
-          budgetPath: ./budget.json
-          uploadArtifacts: true
+      - run: npm install && npm install -g @lhci/cli@0.4.x
+      - run: npm run build
+      - run: lhci autorun
 
   links:
     runs-on: ubuntu-latest
