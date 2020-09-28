@@ -7,32 +7,27 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: Wait for Netlify
+      - name: wait for netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
-          site_name: "hugo-template"
+          site_name: hugo-template
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - name: Run Lighthouse audit
-      - run: npm install && npm install -g @lhci/cli@0.4.x
-      - run: npm run build
-      - run: lhci autorun
+      - run: npm install @lhci/cli@0.4.x
+      - run: lhci autorun --serverBaseUrl=${{ steps.netflify.outputs.url }}
 
   links:
     runs-on: ubuntu-latest
     name: Links
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Wait for Netlify
+      - uses: actions/setup-node@v1
+      - name: wait for netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
-          site_name: "hugo-template"
+          site_name: hugo-template
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install hyperlink tap-dot
@@ -43,11 +38,8 @@ jobs:
     name: Accessibility
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
-      - name: Wait for Netlify
+      - uses: actions/setup-node@v1
+      - name: wait for netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
