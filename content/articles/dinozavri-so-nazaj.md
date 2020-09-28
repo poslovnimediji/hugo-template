@@ -10,6 +10,4 @@ tags:
 
 V Kongu so dinozavri že nekaj časa, pri nas pa jih nismo vajeni.
 
-{{< youtube oODNDxrHkvk >}}
-
 Pametn Jaković
