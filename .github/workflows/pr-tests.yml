@@ -12,16 +12,16 @@ jobs:
       - name: Install node
         run: npm ci
       - name: Wait for Netlify
-        uses: probablyup/wait-for-netlify-action@3.2.0
-        id: waitForDeployment
+        uses: josephduffy/wait-for-netlify-action@v1
+        id: netflify
         with:
-          site_id: "hugo-template"
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          site_name: 'hugo-template'
+        # env:
+        #   NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
-            ${{ steps.netflify-preview.outputs.url }}
+            ${{ steps.netflify.outputs.url }}
           budgetPath: ./budget.json
           uploadArtifacts: true
