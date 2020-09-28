@@ -57,4 +57,4 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install pa11y
-      - run: pa11y ${{ steps.netflify.outputs.url }}
+      - run: node_modules/.bin/pa11y ${{ steps.netflify.outputs.url }}
