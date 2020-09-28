@@ -1,6 +1,6 @@
 ci:
   collect:
-    staticDistDir: /
+    staticDistDir: static
 
   assert:
     # assert options here
