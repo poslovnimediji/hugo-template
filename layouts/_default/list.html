@@ -2,12 +2,16 @@
   <main>
     <div class="container">
       <h1>{{ .Title }}</h1>
-  
-      <ul>
+
+      <div class="grid">
         {{ range .Pages }}
-          <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+          <article class="col-12 col-sm-6">
+            <h4>{{ .Title }}</h4>
+            <p>{{ .Description }}</p>
+            <a href="{{ .Permalink }}">Več</a>
+          </article>
         {{ end }}
-      </ul>
+      </div>
     </div>
   </main>
 {{ end }}

@@ -8,6 +8,4 @@ tags:
 
 **Sv. Nikoli**  Ne sej nismo, ker nas tud ne zanima več. Rajš gremo v šoping!
 
-{{< youtube 1QewPifmFxI >}}
-
 Curedništvo
