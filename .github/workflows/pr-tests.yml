@@ -1,5 +1,5 @@
 name: Pull Request Audits
-on: [push, pull_request]
+on: [pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,12 +12,12 @@ jobs:
       - name: Install node
         run: npm ci
       - name: Wait for Netlify
-        uses: mskelton/wait-for-netlify-action@v1
+        uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
-          site_name: hugo-template
-        # env:
-        #   NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          site_name: "hugo-template"
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
