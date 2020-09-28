@@ -1,8 +1,9 @@
-name: Pull Request Audits
+name: PM Performance Test
 on: [pull_request]
 jobs:
-  build:
+  lighthouse:
     runs-on: ubuntu-latest
+    name: Lighthouse Audit
 
     steps:
       - uses: actions/checkout@v2
@@ -13,7 +14,7 @@ jobs:
           site_name: "hugo-template"
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - name: Lighthouse
+      - name: Run Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
