@@ -1,5 +1,6 @@
 ci:
   collect:
+    numberOfRuns: 1
     # collect options here
 
   assert:
