@@ -19,6 +19,9 @@ jobs:
         with:
           urls: |
             ${{ steps.netflify.outputs.url }}
+            ${{ steps.netflify.outputs.url }}/articles
+            ${{ steps.netflify.outputs.url }}/articles/dinozavri-so-nazaj
+          # You cant use budget and assertions from lighthouserc
           # budgetPath: ./budget.json
           configPath: ./.lighthouserc.yml
 
