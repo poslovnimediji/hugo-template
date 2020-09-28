@@ -7,7 +7,7 @@ ci:
     assertions:
       categories:performance:
       - error
-      - minScore: 0.9
+      - minScore: 0.85
       categories:accessibility:
       - error
       - minScore: 0.9

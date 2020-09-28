@@ -23,6 +23,8 @@ jobs:
             ${{ steps.netflify.outputs.url }}/articles/dinozavri-so-nazaj
           # You cant use budget and assertions from lighthouserc
           # budgetPath: ./budget.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
           configPath: ./.lighthouserc.yml
 
   links:
