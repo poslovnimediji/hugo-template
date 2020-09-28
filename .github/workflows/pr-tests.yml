@@ -23,5 +23,5 @@ jobs:
         with:
           urls: |
             ${{ steps.netflify.outputs.url }}
-          budgetPath: ./budget.json
+          budgetPath: /budget.json
           uploadArtifacts: true
