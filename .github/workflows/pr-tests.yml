@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: wait for netlify
+      - name: Wait for Netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
@@ -15,7 +15,7 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install @lhci/cli@0.4.x
-      - run: lhci autorun --serverBaseUrl=${{ steps.netflify.outputs.url }}
+      - run: node_modules/.bin/lhci autorun --serverBaseUrl=${{ steps.netflify.outputs.url }}
 
   links:
     runs-on: ubuntu-latest
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: wait for netlify
+      - name: Wait for Netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - name: wait for netlify
+      - name: Wait for Netlify
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify
         with:
