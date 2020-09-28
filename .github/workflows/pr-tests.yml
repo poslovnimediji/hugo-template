@@ -1,4 +1,4 @@
-name: PM performance test
+name: PM Audits
 on: [pull_request]
 jobs:
   lighthouse:
@@ -23,7 +23,7 @@ jobs:
 
   links:
     runs-on: ubuntu-latest
-    name: Broken links
+    name: Links
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 12.x
@@ -39,3 +39,22 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install hyperlink tap-dot
       - run: node_modules/.bin/hyperlink ${{ steps.netflify.outputs.url }} -r | tee site.tap | node_modules/.bin/tap-dot
+
+  a11y:
+    runs-on: ubuntu-latest
+    name: Accessibility
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Wait for Netlify
+        uses: kamranayub/wait-for-netlify-action@2.0.0
+        id: netflify
+        with:
+          site_name: "hugo-template"
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      - run: npm install pa11y
+      - run: pa11y ${{ steps.netflify.outputs.url }}
