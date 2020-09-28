@@ -20,7 +20,7 @@ jobs:
           urls: |
             ${{ steps.netflify.outputs.url }}
           budgetPath: ./budget.json
-          configPath: ./.lighthouserc.json
+          configPath: ./.lighthouserc.yml
 
   links:
     runs-on: ubuntu-latest
