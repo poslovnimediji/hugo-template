@@ -1,10 +1,9 @@
-name: PM Performance Test
+name: PM performance test
 on: [pull_request]
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    name: Lighthouse Audit
-
+    name: Lighthouse
     steps:
       - uses: actions/checkout@v2
       - name: Wait for Netlify
@@ -14,10 +13,31 @@ jobs:
           site_name: "hugo-template"
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - name: Run Lighthouse
+      - name: Run Lighthouse audit
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
             ${{ steps.netflify.outputs.url }}
           budgetPath: ./budget.json
           uploadArtifacts: true
+
+  links:
+    runs-on: ubuntu-latest
+    name: Broken links
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Wait for Netlify
+        uses: kamranayub/wait-for-netlify-action@2.0.0
+        id: netflify
+        with:
+          site_name: "hugo-template"
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      - name: Install Hyperlink
+        run: npm install -g hyperlink
+      - name: Run Hyperlink
+        run: hyperlink ${{ steps.netflify.outputs.url }}
