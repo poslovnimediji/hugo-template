@@ -38,5 +38,4 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install hyperlink tap-dot
-      - run: node_modules/.bin/hyperlink ${{ steps.netflify.outputs.url }} -r | tee
-      - run: site.tap | node_modules/.bin/tap-dot
+      - run: node_modules/.bin/hyperlink ${{ steps.netflify.outputs.url }} -r | tee site.tap | node_modules/.bin/tap-dot
