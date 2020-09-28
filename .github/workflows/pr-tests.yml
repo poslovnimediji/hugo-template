@@ -6,20 +6,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
-        uses: actions/setup-node@v1
+      - name: Wait for Netlify Preview
+        uses: kamranayub/wait-for-netlify-action@2.0.0
+        id: netflify-preview
         with:
-          node-version: 12.x
-      - name: Wait for the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: netlify
-        with:
-          site_name: 'hugo-template'
-      - name: Audit URLs using Lighthouse
+          site_name: "hugo-template"
+          max_timeout: 60
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      - name: Lighthouse
         uses: treosh/lighthouse-ci-action@v3
         with:
           urls: |
-            ${{ steps.netlify.outputs.url }}
-            ${{ steps.netlify.outputs.url }}/articles/
+            ${{ steps.netflify-preview.outputs.url }}
           budgetPath: ./budget.json
           uploadArtifacts: true
