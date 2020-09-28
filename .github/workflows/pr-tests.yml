@@ -12,10 +12,10 @@ jobs:
       - name: Install node
         run: npm ci
       - name: Wait for Netlify
-        uses: josephduffy/wait-for-netlify-action@v1
+        uses: mskelton/wait-for-netlify-action@v1
         id: netflify
         with:
-          site_name: 'hugo-template'
+          site_name: hugo-template
         # env:
         #   NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Lighthouse
