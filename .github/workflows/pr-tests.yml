@@ -6,6 +6,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
       - name: Wait for Netlify Preview
         uses: kamranayub/wait-for-netlify-action@2.0.0
         id: netflify-preview
