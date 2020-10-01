@@ -72,5 +72,6 @@ You should see your uploads under the Large Media tab in Netlify dashboard. It t
 
 ## Built With
 
-* [Netlify](https://www.netlify.com)
 * [Hugo](https://gohugo.io/)
+* [Netlify CMS](https://www.netlifycms.org/)
+* [Netlify](https://www.netlify.com)
