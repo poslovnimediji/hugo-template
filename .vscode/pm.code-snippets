@@ -18,9 +18,9 @@
 
 
 
-  "Breakpoint": {
+  "Breakpoint Up": {
     "scope": "scss",
-    "prefix": "breakpoint",
+    "prefix": "breakpoint-up",
     "body": [
       "@include breakpoint('${1|small,medium,large|}') {",
       "\t$2",
@@ -29,7 +29,7 @@
     "description": "Breakpoint mixin."
   },
 
-  "Breakpoint-down": {
+  "Breakpoint Down": {
     "scope": "scss",
     "prefix": "breakpoint-down",
     "body": [

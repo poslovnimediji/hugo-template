@@ -1,39 +1,46 @@
 /* stylelint-disable plugin/stylelint-bem-namics */
 
-$content-width: 1220px;
 $columns-count: 12;
 
+:root {
+  --container-padding: 24px;
+  --content-width: calc(1440px + (2 * var(--container-padding)));
+  --grid-row-gap: 24px;
+  --grid-column-gap: 12px;
+
+  @include breakpoint('medium') {
+    --grid-row-gap: 40px;
+    --grid-column-gap: 30px;
+    --container-padding: 40px;
+  }
+
+  @include breakpoint('xlarge') {
+    --container-padding: 80px;
+  }
+}
+
 .container {
-  padding: 0 24px;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
   width: 100%;
-  max-width: $content-width;
   margin: 0 auto;
 
-  @include breakpoint('small') {
-    padding: 0 40px;
-  }
-
-  &--no-padding {
-    padding: 0;
-
-    @include breakpoint('small') {
-      padding: 0 40px;
-    }
-  }
-
-  &--narrow {
-    max-width: 850px;
+  &:not(.container--fluid) {
+    max-width: var(--content-width);
   }
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat($columns-count, 1fr);
-  grid-gap: 30px 15px;
+  grid-gap: var(--grid-row-gap) var(--grid-column-gap);
 
-  @include breakpoint('small') {
-    grid-template-columns: repeat($columns-count, 1fr);
-    grid-gap: 80px 30px;
+  &.no-gap {
+    grid-gap: 0 0 !important;
+  }
+
+  &.no-row-gap {
+    grid-row-gap: 0 !important;
   }
 }
 
@@ -45,6 +52,22 @@ $columns-count: 12;
   .col-#{$i} {
     grid-column-end: span #{$i};
   }
+
+  .offset-#{$i} {
+    grid-column-start: #{$i + 1};
+  }
+}
+
+@include breakpoint('xsmall') {
+  @for $i from 1 through $columns-count {
+    .order-xs-#{$i} {
+      order: #{$i};
+    }
+
+    .col-xs-#{$i} {
+      grid-column-end: span #{$i};
+    }
+  }
 }
 
 @include breakpoint('small') {
@@ -55,6 +78,10 @@ $columns-count: 12;
 
     .col-sm-#{$i} {
       grid-column-end: span #{$i};
+    }
+
+    .offset-sm-#{$i} {
+      grid-column-start: #{$i+ 1};
     }
   }
 }
@@ -68,6 +95,10 @@ $columns-count: 12;
     .col-md-#{$i} {
       grid-column-end: span #{$i};
     }
+
+    .offset-md-#{$i} {
+      grid-column-start: #{$i+ 1};
+    }
   }
 }
 
@@ -79,6 +110,26 @@ $columns-count: 12;
 
     .col-lg-#{$i} {
       grid-column-end: span #{$i};
+    }
+
+    .offset-lg-#{$i} {
+      grid-column-start: #{$i + 1};
+    }
+  }
+}
+
+@include breakpoint('xlarge') {
+  @for $i from 1 through $columns-count {
+    .order-xl-#{$i} {
+      order: #{$i};
+    }
+
+    .col-xl-#{$i} {
+      grid-column-end: span #{$i};
+    }
+
+    .offset-xl-#{$i} {
+      grid-column-start: calc(#{$i} + 1);
     }
   }
 }
