@@ -35,3 +35,24 @@ collections:
       - {label: "Thumbnail", name: "thumbnail", widget: "image", allow_multiple: false}
       - {label: "Content", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "hidden", default: ["article"]}
+
+  - name: pages
+    label: Pages
+    editor:
+      preview: false
+    files:
+      - label: Site settings
+        name: site-settings
+        file: config.toml
+        fields:
+          - label: "Title"
+            name: "title"
+            widget: "string"
+          - label: "Google Analytics ID"
+            name: "googleAnalytics"
+            widget: "string"
+          - label: "Params"
+            name: "params"
+            widget: "object"
+            fields:
+              - {label: "Description", name: "description", widget: "string"}

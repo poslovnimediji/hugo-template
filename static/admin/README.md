@@ -4,4 +4,8 @@ This is the configuration folder for [Netlify CMS](https://www.netlifycms.org/do
 
 ## local development
 
-You can run the CMS locally by running `npx netlify-cms-proxy-server`. Make sure that `local_backend: true` is in `config.yml`.
+You can run the CMS locally by running
+
+`npx netlify-cms-proxy-server`
+
+Make sure that `local_backend: true` is in `config.yml`.
