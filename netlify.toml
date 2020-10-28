@@ -15,7 +15,7 @@
   GIT_LFS_ENABLED = "true"
 
 [[plugins]]
-  package = "netlify-plugin-html-validate"
+  # package = "netlify-plugin-html-validate"
   # https://github.com/oliverroick/netlify-plugin-html-validate#readme
 
 # [[plugins]]

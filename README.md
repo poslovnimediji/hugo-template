@@ -39,6 +39,13 @@ There is no development URL out of the box. To create this environment, follow t
 3. Under Branch deploys select Let me add individual branches and add `develop`
 4. push some code to `develop` branch and see it on https://develop--YOUR-SITE-NAME.netlify.app
 
+## Configure Github Actions
+
+You will need to add NETLIFY_TOKEN secret to GitHub repository settings. Follow these steps:
+
+1. On <https://app.netlify.com/user/applications#personal-access-tokens>, add new access token and copy the generated string.
+2. On your repo's github page, go to settings -> secrets and add new secret. Name it `NETLIFY_TOKEN` and paste the string.
+
 ## Add Neltify CMS
 
 In Netlify app under your site:
