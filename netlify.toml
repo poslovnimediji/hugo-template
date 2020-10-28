@@ -14,9 +14,9 @@
   HUGO_ENABLEGITINFO = "true"
   GIT_LFS_ENABLED = "true"
 
-[[plugins]]
-  # package = "netlify-plugin-html-validate"
-  # https://github.com/oliverroick/netlify-plugin-html-validate#readme
+# [[plugins]]
+#   package = "netlify-plugin-html-validate"
+#   # https://github.com/oliverroick/netlify-plugin-html-validate#readme
 
 # [[plugins]]
 #   package = "netlify-plugin-a11y"
