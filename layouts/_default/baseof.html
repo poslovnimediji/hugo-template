@@ -40,15 +40,15 @@
 
 <body>
 
-  {{ partialCached "unsupported-browser.html" . }}
+  {{ partialCached "unsupported-browser" . }}
 
   <div class="body-overflow">
-    {{ partial "header.html" . }}
+    {{ partial "header" . }}
 
     {{ block "main" . }}{{ end }}
 
-    {{ partial "footer.html" . }}
-    {{ partial "cookies.html" . }}
+    {{ partial "footer" . }}
+    {{ partial "cookies" . }}
   </div>
 
   {{ $cookiesJs := resources.Get "scripts/cookies.js" }}
