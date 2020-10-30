@@ -1,6 +1,6 @@
 function cookies() {
   const cookiesEl = document.querySelector('.cookies');
-  const consentBtn = cookiesEl.querySelector('.confirm-cookies');
+  const consentBtn = cookiesEl.querySelector('.cookies__confirm');
 
   const init = () => {
     const cookieExists = document.cookie.match(/^(.*;)?\s*cookies\s*=\s*[^;]+(.*)?$/);
