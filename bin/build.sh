@@ -14,7 +14,7 @@ echo -------------------
 
 if [ $status -eq 0 ]
 then
-  npm run env
+  # npm run env
   echo "Build success ......"
 else
   echo "Build failure ############# " >&2
