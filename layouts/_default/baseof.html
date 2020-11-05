@@ -52,7 +52,9 @@
   </div>
 
   {{ $cookiesJs := resources.Get "scripts/cookies.js" }}
-  <script src="{{ $cookiesJs.Permalink }}"></script>
+  {{ $linksJs := resources.Get "scripts/external-links.js" }}
+  <script defer src="{{ $cookiesJs.Permalink }}"></script>
+  <script defer src="{{ $linksJs.Permalink }}"></script>
 
 </body>
 </html>
