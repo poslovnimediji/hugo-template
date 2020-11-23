@@ -44,7 +44,7 @@ There is no development URL out of the box. To create this environment, follow t
 You will need to add NETLIFY_TOKEN secret to GitHub repository settings. Follow these steps:
 
 1. On <https://app.netlify.com/user/applications#personal-access-tokens>, add new access token and copy the generated string.
-2. On your repo's github page, go to settings -> secrets and add new secret. Name it `NETLIFY_TOKEN` and paste the string.
+2. On your repo's github page, go to settings > secrets > new repository secret. For name put `NETLIFY_TOKEN` and paste the string.
 
 ## Add Neltify CMS
 
