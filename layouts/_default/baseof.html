@@ -53,8 +53,16 @@
 
   {{ $cookiesJs := resources.Get "scripts/cookies.js" }}
   {{ $linksJs := resources.Get "scripts/external-links.js" }}
-  <script defer src="{{ $cookiesJs.Permalink }}"></script>
-  <script defer src="{{ $linksJs.Permalink }}"></script>
+  {{/* {{ $exampleJs := resources.Get "scripts/example.js" }} */}}
+
+  {{ $bundleItems := slice $cookiesJs $linksJs }}
+  {{/* An example how to add scripts to build on specific layouts */}}
+  {{/* {{ if .IsHome }}
+    {{ $bundleItems = $bundleItems | append $exampleJs }}
+  {{ end }} */}}
+
+  {{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build }}
+  <script defer src="{{ $bundleJs.Permalink }}"></script>
 
 </body>
 </html>
