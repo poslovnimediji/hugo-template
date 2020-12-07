@@ -29,5 +29,7 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lozad": "^1.16.0"
+  }
 }
