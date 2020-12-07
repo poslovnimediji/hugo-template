@@ -57,25 +57,43 @@ In Netlify app under your site:
 5. Copy the token and go pack to Netlify dashboard. Under Git Gateway click Edit settings and paste in your new access token.
 6. open terminal in your project directory and say `netlify link`. Select the mataching site on Netlify. You need Netlify CLI for this
 7. Under identity settings set email tempate paths for all four tempaltes:
-   - Invitation template: `/emails/invitation.html`
-   - Confirmation template: `/emails/confirmation.html`
-   - Recovery template: `/emails/password-recovery.html`
-   - Email change template: `/emails/email-change.html`
+
+```bash
+# Invitation template:
+/emails/invitation.html
+
+# Confirmation template:
+/emails/confirmation.html
+
+# Recovery template:
+/emails/password-recovery.html
+
+# Email change template:
+/emails/email-change.html
+```
+
 8. Now go back to Identity tab and invite users.
 
 ## Enable Netlify Large Media
 
-1. `git lfs install`
-2. `git lfs track "static/media/uploads/**"`
-3. commit and push
-4. `netlify link`
-5. `netlify lm:setup`
-6. commit and push
+```bash
+git lfs install
+git lfs track "static/media/uploads/**"
+
+# commit and push
+
+netlify link
+netlify lm:setup
+
+# commit and push
+```
 
 You should see your uploads under the Large Media tab in Netlify dashboard. It takes some time for netlify to process media. It if doesn't, try
 
-1. `git lfs update --force`
-2. `git lfs push --all origin master`
+```bash
+git lfs update --force
+git lfs push --all origin master
+```
 
 ## Built With
 
