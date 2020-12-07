@@ -29,9 +29,7 @@
   <meta property="og:description" content="{{ $ogDesc }}">
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage }}">
 
-  {{ $sass := resources.Get "styles/style.scss" }}
-  {{ $style := $sass | resources.ToCSS }}
-  <link rel="stylesheet" href="{{ $style.Permalink }}">
+  {{ partial "styles" . }}
 
   {{ template "_internal/google_analytics.html" . }}
 
