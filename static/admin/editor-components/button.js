@@ -10,20 +10,20 @@ CMS.registerEditorComponent({
     { name: 'extraClass', label: 'Class', widget: 'string' },
   ],
   pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
-  fromBlock(match) {
+  fromBlock (match) {
     return {
       href: match[1],
       target: match[2],
       extraClass: match[3],
       inner: match[4],
-    };
+    }
   },
-  toBlock(obj) {
-    return `{{< button href="${obj.href}" target="${obj.target}" extraClass="${obj.extraClass}" >}}${obj.inner}{{< /button >}}`;
+  toBlock (obj) {
+    return `{{< button href="${obj.href}" target="${obj.target}" extraClass="${obj.extraClass}" >}}${obj.inner}{{< /button >}}`
   },
-  toPreview(obj) {
+  toPreview (obj) {
     return (
       `<a href="${obj.href}" target="${obj.target}" class="button ${obj.extraClass}">${obj.inner}</a>`
-    );
+    )
   },
-});
+})
