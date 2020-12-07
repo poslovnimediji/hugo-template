@@ -1,0 +1,7 @@
+{{ $cookiesJs := resources.Get "scripts/cookies.js" }}
+{{ $linksJs := resources.Get "scripts/external-links.js" }}
+
+{{ $bundleItems := slice $cookiesJs $linksJs }}
+
+{{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build }}
+<script defer src="{{ $bundleJs.Permalink }}"></script>
