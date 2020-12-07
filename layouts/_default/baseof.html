@@ -29,7 +29,7 @@
   <meta property="og:description" content="{{ $ogDesc }}">
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage }}">
 
-  {{ partial "styles" . }}
+  {{ partial "base/styles" . }}
 
   {{ template "_internal/google_analytics.html" . }}
 
@@ -49,7 +49,7 @@
     {{ partial "cookies" . }}
   </div>
 
-  {{ partial "scripts" . }}
+  {{ partial "base/scripts" . }}
 
 </body>
 </html>
