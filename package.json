@@ -32,6 +32,7 @@
     "stylelint-scss": "^3.18.0"
   },
   "dependencies": {
-    "lozad": "^1.16.0"
+    "lozad": "^1.16.0",
+    "postcss-cli": "^8.3.0"
   }
 }
