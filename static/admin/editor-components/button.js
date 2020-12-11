@@ -9,7 +9,7 @@ CMS.registerEditorComponent({
     { name: 'target', label: 'Target', widget: 'string' },
     { name: 'extraClass', label: 'Class', widget: 'string' },
   ],
-  pattern: /{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
+  pattern: /^{{< button href="(.*)" target="(.*)" extraClass="(.*)" >}}(.*){{< \/button >}}/,
   fromBlock (match) {
     return {
       href: match[1],
@@ -21,9 +21,14 @@ CMS.registerEditorComponent({
   toBlock (obj) {
     return `{{< button href="${obj.href}" target="${obj.target}" extraClass="${obj.extraClass}" >}}${obj.inner}{{< /button >}}`
   },
-  toPreview (obj) {
-    return (
-      `<a href="${obj.href}" target="${obj.target}" class="button ${obj.extraClass}">${obj.inner}</a>`
-    )
-  },
+
+  /*
+   * example code if you have editor previews
+   */
+
+  // toPreview (obj) {
+  //   return (
+  //     `<a href="${obj.href}" target="${obj.target}" class="button ${obj.extraClass}">${obj.inner}</a>`
+  //   )
+  // },
 })
