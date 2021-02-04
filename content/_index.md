@@ -1,5 +1,5 @@
 ---
-title: "Začni tukaj"
+title: "Domov"
 ---
 
 To je predložni repozitorij za Hugo (+ Netlify + Netlify CMS) projekte podjetja PM, poslovni mediji. Veliko zabave pri ustvarjanju z njim!
