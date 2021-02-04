@@ -5,14 +5,16 @@ backend:
   branch: master
   squash_merges: true
 
-# display_url:
+display_url: https://hugo-template.netlify.app/
 logo_url: /media/brand/logo.svg
 media_folder: "static/media/uploads"
 public_folder: "/media/uploads"
-# publish_mode: editorial_workflow
 slug:
   encoding: "ascii"
   clean_accents: true
+
+# https://www.netlifycms.org/docs/configuration-options/#publish-mode
+# publish_mode: editorial_workflow
 
 collections:
   - name: "articles"
@@ -23,7 +25,7 @@ collections:
     slug: "{{slug}}"
 
     # This is hack to remove index.md from the list. Add tag "article" to all articles except the index, and show only pages with this tag.
-    filter: {field: "tags", value: "article"}
+    filter: {field: "visibleInCMS", value: true}
 
     # Enable this for a prewiew on the right when editing. You will have to create a preview template for it to make sense.
     editor:
@@ -32,9 +34,9 @@ collections:
     # more about widgets: https://www.netlifycms.org/docs/widgets/
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Thumbnail", name: "thumbnail", widget: "image", allow_multiple: false}
+      - {label: "image", name: "image", widget: "image", allow_multiple: false}
       - {label: "Content", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "hidden", default: ["article"]}
+      - {name: "visibleInCMS", widget: "hidden", default: true}
 
   - name: pages
     label: Pages
@@ -45,14 +47,13 @@ collections:
         name: site-settings
         file: config.toml
         fields:
-          - label: "Title"
-            name: "title"
+          - name: "title"
             widget: "string"
           - label: "Google Analytics ID"
             name: "googleAnalytics"
             widget: "string"
-          - label: "Params"
-            name: "params"
+          - name: "params"
             widget: "object"
             fields:
-              - {label: "Description", name: "description", widget: "string"}
+              - {name: "description", widget: "string"}
+              - {name: "image", widget: "image"}

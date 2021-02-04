@@ -7,34 +7,3 @@
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
   GIT_LFS_ENABLED = "true"
-
-# [[plugins]]
-#   package = "netlify-plugin-html-validate"
-#   # https://github.com/oliverroick/netlify-plugin-html-validate#readme
-
-# [[plugins]]
-#   package = "netlify-plugin-a11y"
-#   # https://github.com/netlify-labs/netlify-plugin-a11y#readme
-
-#   [plugins.inputs]
-#     checkPaths = ['/']
-#     ignoreDirectories = [
-#       '/emails',
-#       '/admin',
-#       '/public/admin',
-#     ]
-#     resultMode = "warn"
-
-# [[plugins]]
-#   package = "netlify-plugin-checklinks"
-#   # https://github.com/munter/netlify-plugin-checklinks#readme
-
-# [[plugins]]
-#   package = "@netlify/plugin-lighthouse"
-#   # https://github.com/netlify-labs/netlify-plugin-lighthouse#readme
-
-#   [plugins.inputs.thresholds]
-#     performance = 0.9
-#     accessibility = 0.9
-#     best-practices = 0.9
-#     seo = 0.9

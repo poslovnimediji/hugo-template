@@ -1,9 +1,9 @@
-/public/
-/resources/_gen/
+public
+resources
 node_modules
 static/node_modules
-/.idea/
-/design/
+.idea
+design
 
 # Local Netlify folder
 .netlify

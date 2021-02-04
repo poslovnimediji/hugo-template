@@ -3,8 +3,8 @@
   {{ $ogDesc = . }}
 {{ end }}
 
-{{ $ogImage := "/media/brand/og-image.jpg" }}
-{{ with .Params.thumbnail }}
+{{ $ogImage := .Site.Params.image }}
+{{ with .Params.image }}
   {{ $ogImage = . }}
 {{ end }}
 
@@ -38,7 +38,7 @@
 
 <body>
 
-  {{ partialCached "unsupported-browser" . }}
+  {{ partialCached "base/unsupported-browser" . }}
 
   <div class="body-overflow">
     {{ partial "header" . }}

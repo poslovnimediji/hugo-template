@@ -1,11 +1,12 @@
 title = "Hugo Template"
-googleAnalytics = "test"
+googleAnalytics = ""
 disableFastRender = true
 languageCode = "sl-sl"
 defaultContentLanguage = "sl"
 
 [params]
 description = "To je opis te spletne strani"
+image = "/media/brand/og-image.jpg"
 
 [markup]
 
