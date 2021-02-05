@@ -38,22 +38,41 @@ collections:
       - {label: "Content", name: "body", widget: "markdown"}
       - {name: "visibleInCMS", widget: "hidden", default: true}
 
-  - name: pages
-    label: Pages
+  - name: general
+    label: General
     editor:
       preview: false
     files:
-      - label: Site settings
-        name: site-settings
-        file: config.toml
+    - label: Site settings
+      name: site-settings
+      file: config.toml
+      fields:
+      - name: "title"
+        widget: "string"
+      - label: "Google Analytics ID"
+        name: "googleAnalytics"
+        widget: "string"
+      - name: "params"
+        widget: "object"
         fields:
-          - name: "title"
-            widget: "string"
-          - label: "Google Analytics ID"
-            name: "googleAnalytics"
-            widget: "string"
-          - name: "params"
-            widget: "object"
-            fields:
-              - {name: "description", widget: "string"}
-              - {name: "image", widget: "image"}
+        - {name: "description", widget: "string"}
+        - {name: "image", widget: "image"}
+    - label: Cookies
+      name: cookies
+      file: data/cookies.json
+      fields:
+      - name: "text"
+        widget: "string"
+      - name: "confirm"
+        widget: "string"
+      - name: "more"
+        widget: "object"
+        fields:
+        - {name: "text", widget: "string"}
+        - {name: "href", widget: "string"}
+    - label: Footer
+      name: footer
+      file: data/footer.json
+      fields:
+      - name: "copyright"
+        widget: "string"
