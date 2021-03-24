@@ -1,5 +1,5 @@
 ---
-title: Dolor sit amet consectetur adipisicing
+title: Consectetur adipisicing
 date: 2020-08-23T16:40:00+01:00
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta et aliquam expedita nisi odit saepe.
 visibleInCMS: true

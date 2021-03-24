@@ -1,5 +1,5 @@
 ---
-title: "Članki"
+title: Objave
 ---
 
 Nekaj primerov člankov

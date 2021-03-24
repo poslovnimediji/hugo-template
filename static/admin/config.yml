@@ -7,36 +7,38 @@ backend:
 
 display_url: https://hugo-template.netlify.app/
 logo_url: /media/brand/logo.svg
-media_folder: "static/media/uploads"
-public_folder: "/media/uploads"
+media_folder: static/media/uploads
+public_folder: /media/uploads
 slug:
-  encoding: "ascii"
+  encoding: ascii
   clean_accents: true
 
 # https://www.netlifycms.org/docs/configuration-options/#publish-mode
 # publish_mode: editorial_workflow
 
 collections:
-  - name: "articles"
-    label: "Articles"
-    label_singular: "article"
-    folder: "content/articles"
+  - name: posts
+    label: Posts
+    label_singular: post
+    folder: content/posts
     create: true
     slug: "{{slug}}"
 
-    # This is hack to remove index.md from the list. Add tag "article" to all articles except the index, and show only pages with this tag.
-    filter: {field: "visibleInCMS", value: true}
+    # This is hack to remove index.md from the list. Add visibleInCMS: true to all content files except index pages.
+    filter: {field: visibleInCMS, value: true}
 
     # Enable this for a prewiew on the right when editing. You will have to create a preview template for it to make sense.
     editor:
       preview: false
 
     # more about widgets: https://www.netlifycms.org/docs/widgets/
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "image", name: "image", widget: "image", allow_multiple: false}
-      - {label: "Content", name: "body", widget: "markdown"}
-      - {name: "visibleInCMS", widget: "hidden", default: true}
+    fields: [
+      {name: title, widget: string},
+      {name: description, widget: text},
+      {name: image, widget: image},
+      {name: body, widget: markdown},
+      {name: visibleInCMS, widget: hidden, default: true},
+    ]
 
   - name: general
     label: General
@@ -46,33 +48,28 @@ collections:
     - label: Site settings
       name: site-settings
       file: config.toml
-      fields:
-      - name: "title"
-        widget: "string"
-      - label: "Google Analytics ID"
-        name: "googleAnalytics"
-        widget: "string"
-      - name: "params"
-        widget: "object"
-        fields:
-        - {name: "description", widget: "string"}
-        - {name: "image", widget: "image"}
+      fields: [
+        {name: title, widget: string},
+        {label: Google Analytics ID, name: googleAnalytics, widget: string},
+        {name: params, widget: object, fields: [
+          {name: description, widget: text},
+          {name: image, widget: image},
+        ]},
+      ]
     - label: Cookies
       name: cookies
       file: data/cookies.json
-      fields:
-      - name: "text"
-        widget: "string"
-      - name: "confirm"
-        widget: "string"
-      - name: "more"
-        widget: "object"
-        fields:
-        - {name: "text", widget: "string"}
-        - {name: "href", widget: "string"}
+      fields: [
+        {name: text, widget: string},
+        {name: confirm, widget: string},
+        {name: more, widget: object, fields: [
+          {name: text, widget: string},
+          {name: href, widget: string},
+        ]},
+      ]
     - label: Footer
       name: footer
       file: data/footer.json
-      fields:
-      - name: "copyright"
-        widget: "string"
+      fields: [
+        {name: copyright, widget: string}
+      ]
