@@ -37,7 +37,7 @@ There is no development URL out of the box. To create this environment, follow t
 1. create branch `develop`
 2. Go to Netlify dashboard -> your site -> Settings -> Build & deploy -> Deploy contexts -> Edit settings
 3. Under Branch deploys select Let me add individual branches and add `develop`
-4. push some code to `develop` branch and see it on https://develop--YOUR-SITE-NAME.netlify.app
+4. push some code to `develop` branch and see it on https://develop--hugo-template.netlify.app
 
 ## Configure Github Actions
 
