@@ -9,9 +9,13 @@ display_url: https://hugo-template.netlify.app/
 logo_url: /media/brand/logo.svg
 media_folder: static/media/uploads
 public_folder: /media/uploads
+
 slug:
   encoding: ascii
   clean_accents: true
+
+aliases:
+  - &VISIBLE_IN_CMS {name: visibleInCMS, widget: hidden, default: true}
 
 # https://www.netlifycms.org/docs/configuration-options/#publish-mode
 # publish_mode: editorial_workflow
@@ -37,7 +41,7 @@ collections:
       {name: description, widget: text},
       {name: image, widget: image},
       {name: body, widget: markdown},
-      {name: visibleInCMS, widget: hidden, default: true},
+      *VISIBLE_IN_CMS,
     ]
 
   - name: general
@@ -50,7 +54,7 @@ collections:
       file: config.toml
       fields: [
         {name: title, widget: string},
-        {label: Google Analytics ID, name: googleAnalytics, widget: string},
+        {label: Google Analytics ID, name: googleAnalytics, widget: string, required: false},
         {name: params, widget: object, fields: [
           {name: description, widget: text},
           {name: image, widget: image},
