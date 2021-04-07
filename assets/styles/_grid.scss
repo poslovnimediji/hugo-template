@@ -42,6 +42,14 @@ $columns-count: 12;
   &.no-row-gap {
     grid-row-gap: 0 !important;
   }
+
+  &.align-items-center {
+    align-items: center;
+  }
+
+  &.align-items-end {
+    align-items: end;
+  }
 }
 
 @for $i from 1 through $columns-count {
