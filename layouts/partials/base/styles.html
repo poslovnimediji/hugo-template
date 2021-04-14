@@ -1,14 +1,13 @@
-{{ $css_options := dict "targetPath" "styles/style.css" "outputStyle" "compressed" "enableSourceMap" true "includePaths" (slice "node_modules") }}
+{{ $options := dict
+  "targetPath" "styles/style.css"
+  "outputStyle" "compressed"
+  "enableSourceMap" true
+  "includePaths" (slice "node_modules")
+}}
 
-{{- if (in (slice (getenv "HUGO_ENV") hugo.Environment) "production") -}}
-  {{- $css_options = merge $css_options (dict "outputStyle" "compressed") -}}
-{{- end -}}
+{{ $scss := resources.Get "styles/style.scss" }}
+{{ $style := $scss | resources.ExecuteAsTemplate "style-parsed.scss" . | toCSS $options }}
 
-{{ $sass_template := resources.Get "styles/style.scss" }}
-{{ $style := $sass_template | resources.ExecuteAsTemplate "main_parsed.scss" . | toCSS $css_options }}
-
-{{- if (eq (getenv "HUGO_ENV") "production") -}}
-  {{- $style = $style | postCSS | minify | fingerprint "md5" -}}
-{{- end -}}
+{{- $style = $style | postCSS | minify | fingerprint "md5" -}}
 
 <link rel="stylesheet" href="{{ $style.Permalink }}">
