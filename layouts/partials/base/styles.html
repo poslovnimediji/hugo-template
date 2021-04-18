@@ -12,4 +12,4 @@
   {{- $style = $style | postCSS | minify | fingerprint "md5" -}}
 {{- end -}}
 
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

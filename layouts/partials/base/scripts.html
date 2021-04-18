@@ -5,4 +5,4 @@
 {{ $bundleItems := slice $cookies $links $lazyload }}
 
 {{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build }}
-<script defer src="{{ $bundleJs.Permalink }}"></script>
+<script defer src="{{ $bundleJs.RelPermalink }}"></script>
