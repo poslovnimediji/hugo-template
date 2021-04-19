@@ -4,5 +4,5 @@
 
 {{ $bundleItems := slice $cookies $links $lazyload }}
 
-{{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build }}
+{{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build (dict "sourcemap" "inline") }}
 <script defer src="{{ $bundleJs.RelPermalink }}"></script>
