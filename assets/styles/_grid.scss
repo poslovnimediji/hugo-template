@@ -4,18 +4,14 @@ $columns-count: 12;
 
 :root {
   --container-padding: 24px;
-  --content-width: calc(1440px + (2 * var(--container-padding)));
-  --grid-row-gap: 24px;
+  --content-width: calc(1360px + (2 * var(--container-padding)));
+  --grid-row-gap: 12px;
   --grid-column-gap: 12px;
 
-  @include breakpoint-up('medium') {
-    --grid-row-gap: 40px;
-    --grid-column-gap: 30px;
+  @include breakpoint-up('md') {
+    --grid-row-gap: 24px;
+    --grid-column-gap: 24px;
     --container-padding: 40px;
-  }
-
-  @include breakpoint-up('xlarge') {
-    --container-padding: 80px;
   }
 }
 
@@ -43,6 +39,10 @@ $columns-count: 12;
     grid-row-gap: 0 !important;
   }
 
+  &.no-column-gap {
+    grid-column-gap: 0 !important;
+  }
+
   &.align-items-center {
     align-items: center;
   }
@@ -66,78 +66,16 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint-up('xsmall') {
-  @for $i from 1 through $columns-count {
-    .order-xs-#{$i} {
-      order: #{$i};
-    }
+@each $key, $value in $breakpoints {
+  @include breakpoint-up($key) {
+    @for $i from 1 through $columns-count {
+      .order-#{$key}-#{$i} {
+        order: #{$i};
+      }
 
-    .col-xs-#{$i} {
-      grid-column-end: span #{$i};
-    }
-  }
-}
-
-@include breakpoint-up('small') {
-  @for $i from 1 through $columns-count {
-    .order-sm-#{$i} {
-      order: #{$i};
-    }
-
-    .col-sm-#{$i} {
-      grid-column-end: span #{$i};
-    }
-
-    .offset-sm-#{$i} {
-      grid-column-start: #{$i+ 1};
-    }
-  }
-}
-
-@include breakpoint-up('medium') {
-  @for $i from 1 through $columns-count {
-    .order-md-#{$i} {
-      order: #{$i};
-    }
-
-    .col-md-#{$i} {
-      grid-column-end: span #{$i};
-    }
-
-    .offset-md-#{$i} {
-      grid-column-start: #{$i+ 1};
-    }
-  }
-}
-
-@include breakpoint-up('large') {
-  @for $i from 1 through $columns-count {
-    .order-lg-#{$i} {
-      order: #{$i};
-    }
-
-    .col-lg-#{$i} {
-      grid-column-end: span #{$i};
-    }
-
-    .offset-lg-#{$i} {
-      grid-column-start: #{$i + 1};
-    }
-  }
-}
-
-@include breakpoint-up('xlarge') {
-  @for $i from 1 through $columns-count {
-    .order-xl-#{$i} {
-      order: #{$i};
-    }
-
-    .col-xl-#{$i} {
-      grid-column-end: span #{$i};
-    }
-
-    .offset-xl-#{$i} {
-      grid-column-start: calc(#{$i} + 1);
+      .col-#{$key}-#{$i} {
+        grid-column-end: span #{$i};
+      }
     }
   }
 }
