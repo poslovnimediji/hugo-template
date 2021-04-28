@@ -8,13 +8,13 @@ $columns-count: 12;
   --grid-row-gap: 24px;
   --grid-column-gap: 12px;
 
-  @include breakpoint('medium') {
+  @include breakpoint-up('medium') {
     --grid-row-gap: 40px;
     --grid-column-gap: 30px;
     --container-padding: 40px;
   }
 
-  @include breakpoint('xlarge') {
+  @include breakpoint-up('xlarge') {
     --container-padding: 80px;
   }
 }
@@ -66,7 +66,7 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint('xsmall') {
+@include breakpoint-up('xsmall') {
   @for $i from 1 through $columns-count {
     .order-xs-#{$i} {
       order: #{$i};
@@ -78,7 +78,7 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint('small') {
+@include breakpoint-up('small') {
   @for $i from 1 through $columns-count {
     .order-sm-#{$i} {
       order: #{$i};
@@ -94,7 +94,7 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint('medium') {
+@include breakpoint-up('medium') {
   @for $i from 1 through $columns-count {
     .order-md-#{$i} {
       order: #{$i};
@@ -110,7 +110,7 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint('large') {
+@include breakpoint-up('large') {
   @for $i from 1 through $columns-count {
     .order-lg-#{$i} {
       order: #{$i};
@@ -126,7 +126,7 @@ $columns-count: 12;
   }
 }
 
-@include breakpoint('xlarge') {
+@include breakpoint-up('xlarge') {
   @for $i from 1 through $columns-count {
     .order-xl-#{$i} {
       order: #{$i};

@@ -1,12 +1,12 @@
 $breakpoints: (
-  'xsmall'  : 580px,
+  'xsmall'  : 576px,
   'small'  : 768px,
   'medium' : 992px,
-  'large'  : 1170px,
-  'xlarge': 1520px
+  'large'  : 1200px,
+  'xlarge': 1440px
 );
 
-@mixin breakpoint($breakpoint) {
+@mixin breakpoint-up($breakpoint) {
   $value: map-get($breakpoints, $breakpoint);
 
   @if $value != null {
