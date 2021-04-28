@@ -4,6 +4,5 @@ node_modules
 static/node_modules
 .idea
 design
-
-# Local Netlify folder
+.DS_Store
 .netlify
