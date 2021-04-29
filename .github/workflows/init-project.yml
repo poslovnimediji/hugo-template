@@ -17,4 +17,4 @@ jobs:
         replace: ${{ github.event.repository.name }}
 
     - name: Git Commit/Push Changes
-      uses: actions-x/commit@v1
+      uses: github-actions-x/commit@v2.8
