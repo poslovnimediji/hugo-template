@@ -1,5 +1,6 @@
 name: PM Audits
-on: [pull_request]
+on: pull_request
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest

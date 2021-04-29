@@ -1,0 +1,20 @@
+name: Init Project
+on: create
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    name: Rename repository
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    - name: Find and replace "hugo-template"
+      uses: jacobtomlinson/gha-find-replace@master
+      with:
+        find: "hugo-template"
+        replace: ${{ github.event.repository.name }}
+
+    - name: Git Commit/Push Changes
+      uses: actions-x/commit@v1
