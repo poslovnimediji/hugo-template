@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 You need Hugo installed on your machine: <https://gohugo.io/getting-started/quick-start/>
 
-This repository is set up to be developed with (Visual Studio Code)[https://code.visualstudio.com/] editor. Please install reccommended extensions listed in <.vscode/extensions.json>
+This repository is set up to be developed with [Visual Studio Code](https://code.visualstudio.com/) editor. Please install reccommended extensions listed in <.vscode/extensions.json>
 
 If this is your first time running the project, run
 
@@ -30,13 +30,13 @@ and open your local site on <http://localhost:1313/>
 
 ## Development
 
-We use (BEM)[http://getbem.com/] naming convention for CSS class names.
+We use [BEM](http://getbem.com/) naming convention for CSS class names.
 
 We follow standard Javascript style.
 
 ### Linters
 
-There are 3 linters set up: (stylelint)[https://stylelint.io/] for CSS, (eslint)[https://eslint.org/] for JS and (htmlhint)[https://htmlhint.com/] for HTML. If quick fixes are possible, VS Code will fix them on save. A pre-commit git hook is also in place. It triggers all 3 linters on staged files, and if there are errors, it prevents the commit.
+There are 3 linters set up: [stylelint](https://stylelint.io/) for CSS, [eslint](https://eslint.org/) for JS and [htmlhint](https://htmlhint.com/) for HTML. If quick fixes are possible, VS Code will fix them on save. A pre-commit git hook is also in place. It triggers all 3 linters on staged files, and if there are errors, it prevents the commit.
 
 ## Deployment
 
@@ -49,7 +49,7 @@ There is no development URL out of the box. To create this environment, follow t
 1. create branch `develop`
 2. Go to Netlify dashboard -> your site -> Settings -> Build & deploy -> Deploy contexts -> Edit settings
 3. Under Branch deploys select Let me add individual branches and add `develop`
-4. push some code to `develop` branch and see it on https://develop--hugo-template.netlify.app
+4. push some code to `develop` branch and see it on <https://develop--hugo-template.netlify.app>
 
 ## Configure Github Actions
 
