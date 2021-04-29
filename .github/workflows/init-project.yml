@@ -1,23 +1,22 @@
-name: Init Project
+name: Initialize project
 on: create
 
 jobs:
   rename:
     runs-on: ubuntu-latest
-    name: Rename repository
+    name: Rename project
 
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
     - name: Find and replace "hugo-template"
       uses: jacobtomlinson/gha-find-replace@master
       with:
-        find: "hugo-template"
+        find: hugo-template
         replace: ${{ github.event.repository.name }}
 
-    - name: Git Commit/Push Changes
+    - name: Commit and push changes
       uses: github-actions-x/commit@v2.8
       with:
-        push-branch: 'master'
-        commit-message: 'Initialize project'
+        push-branch: master
+        commit-message: Initialize project
