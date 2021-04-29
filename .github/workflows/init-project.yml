@@ -1,3 +1,5 @@
+# WIP: Somehow the renamed files don't get committed.
+
 name: Initialize project
 on: create
 
