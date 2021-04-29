@@ -13,5 +13,13 @@
   },
   "rules": {
     "comma-dangle": ["error", "always-multiline"]
-  }
+  },
+  "ignorePatterns": [
+    "package.json",
+    "package-lock.json",
+    "node_modules",
+    "*.min.js",
+    "public",
+    "resources"
+  ]
 }
