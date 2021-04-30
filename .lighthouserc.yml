@@ -1,6 +1,6 @@
 ci:
   collect:
-    numberOfRuns: 2
+    numberOfRuns: 1
     # collect options here
 
   assert:
