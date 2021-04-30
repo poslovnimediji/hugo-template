@@ -1,4 +1,4 @@
-name: PM Audits
+name: Pull request checks
 on: pull_request
 
 jobs:
@@ -16,12 +16,10 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Run Lighthouse audit
-        uses: treosh/lighthouse-ci-action@v3
+        uses: treosh/lighthouse-ci-action@v7
         with:
           urls: |
             ${{ steps.netflify.outputs.url }}
-            ${{ steps.netflify.outputs.url }}/posts/
-            ${{ steps.netflify.outputs.url }}/posts/dinozavri-so-nazaj/
           # You cant use budget and assertions from lighthouserc
           # budgetPath: ./budget.json
           uploadArtifacts: true
@@ -43,19 +41,3 @@ jobs:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - run: npm install hyperlink tap-dot
       - run: node_modules/.bin/hyperlink ${{ steps.netflify.outputs.url }} -r | tee site.tap | node_modules/.bin/tap-dot
-
-  a11y:
-    runs-on: ubuntu-latest
-    name: Accessibility
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Wait for Netlify
-        uses: kamranayub/wait-for-netlify-action@2.0.0
-        id: netflify
-        with:
-          site_name: "hugo-template"
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - run: npm install pa11y
-      - run: node_modules/.bin/pa11y ${{ steps.netflify.outputs.url }}
