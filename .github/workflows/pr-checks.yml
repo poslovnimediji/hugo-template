@@ -16,7 +16,7 @@ jobs:
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Run Lighthouse audit
-        uses: treosh/lighthouse-ci-action@v4
+        uses: treosh/lighthouse-ci-action@v5
         with:
           urls: |
             ${{ steps.waitForNetlify.outputs.url }}
