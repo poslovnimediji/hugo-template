@@ -5,6 +5,7 @@ on: create
 
 jobs:
   rename:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     name: Rename project
 
