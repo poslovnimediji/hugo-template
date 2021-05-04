@@ -76,6 +76,10 @@ $columns-count: 12;
       .col-#{$key}-#{$i} {
         grid-column-end: span #{$i};
       }
+
+      .offset-#{$key}-#{$i} {
+        grid-column-start: #{$i + 1};
+      }
     }
   }
 }
