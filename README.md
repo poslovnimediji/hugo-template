@@ -40,7 +40,7 @@ There are 3 linters set up: [stylelint](https://stylelint.io/) for CSS, [eslint]
 
 ## Deployment
 
-To deploy to production, push to `master` branch
+To deploy to production, push to `main` branch
 
 ### Development URL
 
@@ -104,7 +104,7 @@ You should see your uploads under the Large Media tab in Netlify dashboard. It t
 
 ```bash
 git lfs update --force
-git lfs push --all origin master
+git lfs push --all origin main
 ```
 
 ## Built With
