@@ -25,7 +25,7 @@ $breakpoints: (
   $value: map-get($breakpoints, $breakpoint);
 
   @if $value != null {
-    @media (max-width: $value) {
+    @media (max-width: ($value - 1)) {
       @content;
     }
   }

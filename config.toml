@@ -8,6 +8,13 @@ defaultContentLanguage = "sl"
 description = "To je opis te spletne strani"
 image = "/media/brand/og-image.jpg"
 
+[params.breakpoints]
+  xs = 576
+  sm = 768
+  md = 992
+  lg = 1200
+  xl = 1440
+
 [markup]
 
 [markup.goldmark]
