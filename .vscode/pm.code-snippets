@@ -22,7 +22,7 @@
     "scope": "scss",
     "prefix": "breakpoint-up",
     "body": [
-      "@include breakpoint-up('${1|xs,sm,md,lg,xl|}') {",
+      "@include breakpoint-up('${1|xs,sm,md,lg,xl,xxl,xxxl|}') {",
       "\t$2",
       "}"
     ],
@@ -33,7 +33,7 @@
     "scope": "scss",
     "prefix": "breakpoint-down",
     "body": [
-      "@include breakpoint-down('${1|xs,sm,md,lg,xl|}') {",
+      "@include breakpoint-down('${1|xs,sm,md,lg,xl,xxl,xxxl|}') {",
       "\t$2",
       "}"
     ],
