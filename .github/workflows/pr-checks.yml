@@ -25,19 +25,3 @@ jobs:
           configPath: ./.lighthouserc.yml
           # You cant use budget and assertions from lighthouserc
           # budgetPath: ./budget.json
-
-  links:
-    runs-on: ubuntu-latest
-    name: Links
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: Wait for Netlify
-        uses: kamranayub/wait-for-netlify-action@2.0.0
-        id: waitForNetlify
-        with:
-          site_name: hugo-template
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-      - run: npm install hyperlink tap-dot
-      - run: node_modules/.bin/hyperlink ${{ steps.waitForNetlify.outputs.url }} -r | tee site.tap | node_modules/.bin/tap-dot
