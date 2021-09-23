@@ -107,6 +107,18 @@ git lfs update --force
 git lfs push --all origin main
 ```
 
+### Contributing without Large Media access
+
+For contributions that don’t have access to repository’s Large Media files, you can use `GIT_LFS_SKIP_SMUDGE=1` with your clone command to ignore LFS settings and download the text pointer files only:
+
+```sh
+GIT_LFS_SKIP_SMUDGE=1 git clone YOUR_REPOSITORY_URL
+```
+
+**Windows users**: PowerShell and the Windows command line (cmd.exe) do not support the above syntax. For Windows users, I recommend running the command above using [Git Bash for Windows](https://git-scm.com/).
+
+[Netlify docs about this](https://docs.netlify.com/large-media/repository-collaboration/)
+
 ## Built With
 
 * [Hugo](https://gohugo.io/)
