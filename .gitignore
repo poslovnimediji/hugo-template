@@ -7,3 +7,4 @@ design
 .DS_Store
 .netlify
 .env
+.hugo_build.lock
