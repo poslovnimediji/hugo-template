@@ -32,15 +32,15 @@ $columns-count: 12;
   grid-gap: var(--grid-row-gap) var(--grid-column-gap);
 
   &.no-gap {
-    grid-gap: 0 0 !important;
+    grid-gap: 0 0;
   }
 
   &.no-row-gap {
-    grid-row-gap: 0 !important;
+    grid-row-gap: 0;
   }
 
   &.no-column-gap {
-    grid-column-gap: 0 !important;
+    grid-column-gap: 0;
   }
 
   &.align-items-center {
@@ -52,7 +52,7 @@ $columns-count: 12;
   }
 }
 
-@for $i from 1 through $columns-count {
+@for $i from 0 through $columns-count {
   .order-#{$i} {
     order: #{$i};
   }
@@ -68,7 +68,7 @@ $columns-count: 12;
 
 @each $key, $value in $breakpoints {
   @include breakpoint-up($key) {
-    @for $i from 1 through $columns-count {
+    @for $i from 0 through $columns-count {
       .order-#{$key}-#{$i} {
         order: #{$i};
       }
@@ -79,6 +79,34 @@ $columns-count: 12;
 
       .offset-#{$key}-#{$i} {
         grid-column-start: #{$i + 1};
+      }
+    }
+
+    .hide-#{$key}-up {
+      display: none;
+    }
+
+    .no-padding-#{$key}-up {
+      padding: 0;
+    }
+
+    .no-margin-#{$key}-up {
+      margin: 0;
+    }
+  }
+
+  @include breakpoint-down($key) {
+    @for $i from 0 through $columns-count {
+      .hide-#{$key}-down {
+        display: none;
+      }
+
+      .no-padding-#{$key}-down {
+        padding: 0;
+      }
+
+      .no-margin-#{$key}-down {
+        margin: 0;
       }
     }
   }
