@@ -53,12 +53,12 @@ $columns-count: 12;
 }
 
 @for $i from 0 through $columns-count {
-  .order-#{$i} {
-    order: #{$i};
-  }
-
   .col-#{$i} {
     grid-column-end: span #{$i};
+  }
+
+  .order-#{$i} {
+    order: #{$i};
   }
 
   .offset-#{$i} {
@@ -69,12 +69,12 @@ $columns-count: 12;
 @each $key, $value in $breakpoints {
   @include breakpoint-up($key) {
     @for $i from 0 through $columns-count {
-      .order-#{$key}-#{$i} {
-        order: #{$i};
-      }
-
       .col-#{$key}-#{$i} {
         grid-column-end: span #{$i};
+      }
+
+      .order-#{$key}-#{$i} {
+        order: #{$i};
       }
 
       .offset-#{$key}-#{$i} {
