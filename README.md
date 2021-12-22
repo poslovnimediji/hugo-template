@@ -100,6 +100,8 @@ netlify lm:setup
 # commit and push
 ```
 
+Add `GIT_LFS_ENABLED = true` to `[build.environment]` in [netlify.toml](netlify.toml)
+
 You should see your uploads under the Large Media tab in Netlify dashboard. It takes some time for netlify to process media. It if doesn't, try
 
 ```bash
