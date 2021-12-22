@@ -14,6 +14,8 @@ image = "/media/brand/og-image.jpg"
   md = 992
   lg = 1200
   xl = 1440
+  xxl = 1680
+  xxxl = 1920
 
 [markup]
 
