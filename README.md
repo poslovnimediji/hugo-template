@@ -58,7 +58,9 @@ You will need to add NETLIFY_TOKEN secret to GitHub repository settings. Follow 
 1. On <https://app.netlify.com/user/applications#personal-access-tokens>, add new access token and copy the generated string.
 2. On your repo's github page, go to settings > secrets > new repository secret. For name put `NETLIFY_TOKEN` and paste the string.
 
-## Add Neltify CMS
+## Netlify CMS
+
+### Configure
 
 In Netlify app under your site:
 
@@ -85,6 +87,10 @@ In Netlify app under your site:
 ```
 
 8. Now go back to Identity tab and invite users.
+
+### Run it locally
+
+See the [admin readme](static/admin/README.md)
 
 ## Enable Netlify Large Media
 
