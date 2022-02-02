@@ -10,4 +10,8 @@ You can run the CMS locally by running
 npx netlify-cms-proxy-server
 ```
 
+Admin is accessible at http://localhost:1313/admin
+
+### Debug
+
 Make sure that `local_backend: true` is in `config.yml`.
