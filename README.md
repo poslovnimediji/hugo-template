@@ -127,6 +127,13 @@ GIT_LFS_SKIP_SMUDGE=1 git clone YOUR_REPOSITORY_URL
 
 [Netlify docs about this](https://docs.netlify.com/large-media/repository-collaboration/)
 
+## Enable Git Pre-Commit hook
+
+```git config core.hooksPath hooks```
+
+```chmod +x hooks/pre-commit```
+
+
 ## Built With
 
 * [Hugo](https://gohugo.io/)
