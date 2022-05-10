@@ -1,0 +1,17 @@
+{{ $data := .Inner | transform.Unmarshal }}
+<div class="gallery">
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {{ range $data }}
+      <div class='swiper-slide {{ if eq .imageOrYoutube.type "image"}}swiper-slide--image{{ end }}'>
+        {{ partial "image-or-youtube" (dict "context" .imageOrYoutube) }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
