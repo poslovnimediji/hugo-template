@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "hugo server",
     "build": "hugo",
-    "lint": "npx htmlhint 'layouts/**/*.html' & eslint . & npx stylelint 'assets/styles/*.scss'"
+    "lint": "npx htmlhint 'layouts/**/*.html' & npx eslint . & npx stylelint 'assets/styles/*.scss'"
   },
   "repository": {
     "type": "git",
@@ -29,8 +29,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "stylelint": "^14.10.0",
-    "stylelint-config-standard": "^27.0.0",
-    "stylelint-scss": "^4.3.0"
+    "stylelint-config-standard-scss": "^5.0.0"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
