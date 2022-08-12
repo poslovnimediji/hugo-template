@@ -5,7 +5,7 @@ languageCode = "sl-sl"
 defaultContentLanguage = "sl"
 
 [params]
-description = "To je opis te spletne strani"
+description = "Boilerplate projekt za Jamtstack projekte, ki temeljijo na tehnologijah Hugo in Netlify CMS."
 image = "/media/brand/og-image.jpg"
 
 [params.breakpoints]

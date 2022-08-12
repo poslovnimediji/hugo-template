@@ -3,15 +3,15 @@
 $columns-count: 12;
 
 :root {
-  --container-padding: 24px;
+  --container-padding: 1.5rem;
   --content-width: calc(1760px + (2 * var(--container-padding)));
-  --grid-row-gap: 12px;
-  --grid-column-gap: 12px;
+  --grid-row-gap: 0.75rem;
+  --grid-column-gap: 0.75rem;
 
   @include breakpoint-up('md') {
-    --grid-row-gap: 24px;
-    --grid-column-gap: 24px;
-    --container-padding: 40px;
+    --grid-row-gap: 1.5rem;
+    --grid-column-gap: 1.5rem;
+    --container-padding: 2.5rem;
   }
 }
 

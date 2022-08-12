@@ -11,7 +11,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -30,26 +29,17 @@
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage }}">
 
   {{ partial "base/styles" . }}
-
-  {{ template "_internal/google_analytics.html" . }}
-
 </head>
 
-
 <body>
-
   {{ partialCached "base/unsupported-browser" . }}
+  {{ partial "header" . }}
 
-  <div class="body-overflow">
-    {{ partial "header" . }}
-
+  <main>
     {{ block "main" . }}{{ end }}
+  </main>
 
-    {{ partial "footer" . }}
-    {{ partial "cookies" . }}
-  </div>
-
+  {{ partial "footer" . }}
   {{ partial "base/scripts" . }}
-
 </body>
 </html>
