@@ -28,7 +28,7 @@ $columns-count: 12;
 
 .grid {
   display: grid;
-  grid-template-columns: repeat($columns-count, 1fr);
+  grid-template-columns: repeat($columns-count, minmax(0, 1fr));
   grid-gap: var(--grid-row-gap) var(--grid-column-gap);
 
   &.no-gap {
