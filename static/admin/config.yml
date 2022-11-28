@@ -60,17 +60,6 @@ collections:
           {name: image, widget: image},
         ]},
       ]
-    - label: Cookies
-      name: cookies
-      file: data/cookies.json
-      fields: [
-        {name: text, widget: string},
-        {name: confirm, widget: string},
-        {name: more, widget: object, fields: [
-          {name: text, widget: string},
-          {name: href, widget: string},
-        ]},
-      ]
     - label: Footer
       name: footer
       file: data/footer.json

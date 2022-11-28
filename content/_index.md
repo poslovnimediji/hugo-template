@@ -1,5 +1,5 @@
 ---
-title: "Domov"
+title: Home
 ---
 
-To je predložni repozitorij za jamstack projekte. Veliko zabave pri ustvarjanju z njim!
+Hello world, this is a template repository using Hugo, Netlify CMS and some other awesome tech.
