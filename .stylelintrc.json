@@ -1,10 +1,11 @@
 {
   "extends": "stylelint-config-standard-scss",
   "plugins": [
-    "@namics/stylelint-bem"
+    "stylelint-selector-bem-pattern"
   ],
   "rules": {
     "at-rule-empty-line-before": null,
-    "at-rule-no-unknown": null
+    "at-rule-no-unknown": null,
+    "scss/no-global-function-names": null
   }
 }
