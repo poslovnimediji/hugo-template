@@ -1,6 +1,4 @@
 ---
-title: Objave
-description: Preberite nekaj člankov
+title: Posts
+description: List of lorem ipsums
 ---
-
-Nekaj primerov člankov

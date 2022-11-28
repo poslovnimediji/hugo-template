@@ -1,11 +1,11 @@
 title = "Hugo Template"
 googleAnalytics = ""
 disableFastRender = true
-languageCode = "sl-sl"
-defaultContentLanguage = "sl"
+languageCode = "en-en"
+defaultContentLanguage = "en"
 
 [params]
-description = "Boilerplate projekt za Jamtstack projekte, ki temeljijo na tehnologijah Hugo in Netlify CMS."
+description = "Template repository for Jamstack projects"
 image = "/media/brand/og-image.jpg"
 
 [params.breakpoints]
