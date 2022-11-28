@@ -3,7 +3,7 @@
 if [[ "$CONTEXT" = "production" ]]
 then
   echo ----- PRODUCTION
-  hugo --gc -b $URL
+  hugo --gc --minify -b $URL
   status=$?
 else
   echo +++++ PREVIEW
