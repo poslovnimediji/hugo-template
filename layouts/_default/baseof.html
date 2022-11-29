@@ -1,11 +1,22 @@
+{{ $ogTitle := .Site.Title }}
+{{ if .Params.ogTags.title }}
+  {{ $ogTitle = .Params.ogTags.title }}
+{{ else if not .IsHome }}
+  {{ $ogTitle = print .Title " | " .Site.Title }}
+{{ end }}
+
 {{ $ogDesc := .Site.Params.description }}
-{{ with .Description }}
-  {{ $ogDesc = . }}
+{{ if .Params.ogTags.description }}
+  {{ $ogDesc = .Params.ogTags.description }}
+{{ else if .Description }}
+  {{ $ogDesc = .Description }}
 {{ end }}
 
 {{ $ogImage := .Site.Params.image }}
-{{ with .Params.image }}
-  {{ $ogImage = . }}
+{{ if .Params.ogTags.image }}
+  {{ $ogImage = .Params.ogTags.image }}
+{{ else if .Params.image }}
+  {{ $ogImage = .Params.image }}
 {{ end }}
 
 <!DOCTYPE html>
@@ -17,14 +28,13 @@
   <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
 
   <!-- Primary Meta Tags -->
-  <title>{{ .Title }} | {{ .Site.Title }}</title>
-  <meta name="title" content="{{ .Title }} | {{ .Site.Title }}">
+  <title>{{ cond (eq .IsHome true) .Site.Title (print .Title " | " .Site.Title) }}</title>
   <meta name="description" content="{{ $ogDesc }}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ .RelPermalink }}">
-  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ $ogTitle }}">
   <meta property="og:description" content="{{ $ogDesc }}">
   <meta property="og:image" content="{{ .Site.BaseURL }}{{ $ogImage }}">
 
