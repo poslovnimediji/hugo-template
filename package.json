@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "hugo server",
     "build": "hugo",
-    "lint": "npx htmlhint 'layouts/**/*.html' & npx eslint . & npx stylelint 'assets/styles/*.scss'"
+    "lint": "npx htmlhint 'layouts/**/*.html' & npx eslint . & npx stylelint \"assets/styles/*.scss\""
   },
   "repository": {
     "type": "git",
