@@ -6,6 +6,8 @@
   "rules": {
     "at-rule-empty-line-before": null,
     "at-rule-no-unknown": null,
-    "scss/no-global-function-names": null
+    "scss/no-global-function-names": null,
+    "color-function-notation": "legacy",
+    "alpha-value-notation": "number"
   }
 }
