@@ -12,5 +12,8 @@
     },
     "rules": {
       "comma-dangle": ["error", "always-multiline"]
-    }
+    },
+    "ignorePatterns": [
+      "static/scripts/*"
+    ]
 }
