@@ -11,3 +11,13 @@ body {
 .text-left {
   text-align: left;
 }
+
+a {
+  &.external::after {
+    content: "↗";
+    margin-left: 0.3em;
+    font-size: 0.6em;
+    position: relative;
+    top: -0.2em;
+  }
+}
