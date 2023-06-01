@@ -2,41 +2,42 @@
 
 # Hugo Template
 
-Template project for sites built with Hugo & Netlify
+Template project for sites built with Hugo, Decap, and Netlify
 
 * Client:
 * Netlify URL: https://hugo-template.netlify.app/
 * Production URL:
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Installing
+## Installing
 
 You need Hugo installed on your machine: <https://gohugo.io/getting-started/quick-start/>
 
-This repository is set up to be developed with [Visual Studio Code](https://code.visualstudio.com/) editor. Please install reccommended extensions listed in <.vscode/extensions.json>
+This repository is set up to be developed with [Visual Studio Code](https://code.visualstudio.com/) editor. Please install reccommended extensions listed in [extensions.json](.vscode/extensions.json)
 
 If this is your first time running the project, run
 
-`npm install`
+`npm install` and `npx husky install`
 
-When you have that, just run
+When you have that run one of these commands for local dev server:
 
 `hugo server` or `npm run dev`
 
-and open your local site on <http://localhost:1313/>
+and open your local site on http://localhost:1313/
 
 ## Development
 
 We use [BEM](http://getbem.com/) naming convention for CSS class names.
 
-We follow standard Javascript style.
+We follow the standard Javascript style.
 
 ### Linters
 
-There are 3 linters set up: [stylelint](https://stylelint.io/) for CSS, [eslint](https://eslint.org/) for JS and [htmlhint](https://htmlhint.com/) for HTML. If quick fixes are possible, VS Code will fix them on save. A pre-commit git hook is also in place. It triggers all 3 linters on staged files, and if there are errors, it prevents the commit.
+There are 3 linters set up:
+- [stylelint](https://stylelint.io/) for CSS
+- [eslint](https://eslint.org/) for JS
+- [htmlhint](https://htmlhint.com/) for HTML
+
+If quick fixes are possible, VS Code will fix them on save. A pre-commit git hook is also in place. It triggers all 3 linters on staged files, and if there are errors, it prevents the commit.
 
 ## Deployment
 
@@ -51,88 +52,21 @@ There is no development URL out of the box. To create this environment, follow t
 3. Under Branch deploys select Let me add individual branches and add `develop`
 4. push some code to `develop` branch and see it on <https://develop--hugo-template.netlify.app>
 
-## Configure Github Actions
+## Additional setup
 
-You will need to add NETLIFY_TOKEN secret to GitHub repository settings. Follow these steps:
+These configurations are optional based on the demands of your project.
 
-1. On <https://app.netlify.com/user/applications#personal-access-tokens>, add new access token and copy the generated string.
-2. On your repo's github page, go to settings > secrets > new repository secret. For name put `NETLIFY_TOKEN` and paste the string.
+### Configure Github Actions
 
-## Netlify CMS
+See [How to Configure Github Actions on a Site](https://github.com/poslovnimediji/knowledgebase/wiki/How-to-Configure-Github-Actions-on-a-Site).
 
-### Configure
+### Configure Decap CMS + Netlify Identity
 
-In Netlify app under your site:
+See [How to enable Netlify Identity for Decap CMS on a site](https://github.com/poslovnimediji/knowledgebase/wiki/How-to-enable-Netlify-Identity-for-Decap-CMS-on-a-site).
 
-1. Under Identity, click Enable identity
-2. then click Settings and usage, go to the bottom and click Enable Git Gateway
-3. Go to Github -> click on profile picture and select settings on the dropdown. Go to Developer settings -> personal access tokens and click Generate new token
-4. under note put `site note - git gateway` and select repo group of credentials. Click Generate token
-5. Copy the token and go pack to Netlify dashboard. Under Git Gateway click Edit settings and paste in your new access token.
-6. open terminal in your project directory and say `netlify link`. Select the mataching site on Netlify. You need Netlify CLI for this
-7. Under identity settings set email tempate paths for all four tempaltes:
+### Enable Netlify Large Media
 
-```bash
-# Invitation template:
-/emails/invitation.html
-
-# Confirmation template:
-/emails/confirmation.html
-
-# Recovery template:
-/emails/password-recovery.html
-
-# Email change template:
-/emails/email-change.html
-```
-
-8. Now go back to Identity tab and invite users.
-
-### Run it locally
-
-See the [admin readme](static/admin/README.md)
-
-## Enable Netlify Large Media
-
-```bash
-git lfs install
-git lfs track "static/media/uploads/**"
-
-# commit and push
-
-netlify link
-netlify lm:setup
-
-# commit and push
-```
-
-Add `GIT_LFS_ENABLED = true` to `[build.environment]` in [netlify.toml](netlify.toml)
-
-You should see your uploads under the Large Media tab in Netlify dashboard. It takes some time for netlify to process media. It if doesn't, try
-
-```bash
-git lfs update --force
-git lfs push --all origin main
-```
-
-### Contributing without Large Media access
-
-For contributions that don’t have access to repository’s Large Media files, you can use `GIT_LFS_SKIP_SMUDGE=1` with your clone command to ignore LFS settings and download the text pointer files only:
-
-```sh
-GIT_LFS_SKIP_SMUDGE=1 git clone YOUR_REPOSITORY_URL
-```
-
-**Windows users**: PowerShell and the Windows command line (cmd.exe) do not support the above syntax. For Windows users, I recommend running the command above using [Git Bash for Windows](https://git-scm.com/).
-
-[Netlify docs about this](https://docs.netlify.com/large-media/repository-collaboration/)
-
-## Enable Git Pre-Commit hook
-
-```git config core.hooksPath hooks```
-
-```chmod +x hooks/pre-commit```
-
+See (How to Enable Netlify Large Media on a Project)[https://github.com/poslovnimediji/knowledgebase/wiki/How-to-Enable-Netlify-Large-Media-on-a-Project]
 
 ## Built With
 
