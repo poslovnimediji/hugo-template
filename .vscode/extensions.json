@@ -7,7 +7,7 @@
     "dbaeumer.vscode-eslint",
     "stylelint.vscode-stylelint",
     "budparr.language-hugo-vscode",
-    "mkaufman.htmlhint",
+    "HTMLHint.vscode-htmlhint",
     "editorconfig.editorconfig"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
