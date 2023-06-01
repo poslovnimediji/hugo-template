@@ -3,8 +3,8 @@
   command = "npm run lint && chmod +x ./bin/build.sh && ./bin/build.sh"
 
 [build.environment]
-  NODE_VERSION = "16"
-  HUGO_VERSION = "0.101.0"
+  NODE_VERSION = "18"
+  HUGO_VERSION = "0.112.5"
   HUGO_ENV = "production"
   HUGO_ENABLEGITINFO = "true"
 

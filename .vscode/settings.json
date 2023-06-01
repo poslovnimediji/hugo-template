@@ -17,5 +17,7 @@
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll": true
-  }
+  },
+  "javascript.format.semicolons": "remove",
+  "typescript.format.semicolons": "remove"
 }

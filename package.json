@@ -19,25 +19,25 @@
   },
   "homepage": "https://github.com/poslovnimediji/hugo-template#readme",
   "devDependencies": {
-    "eslint": "^8.21.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.4",
+    "eslint": "^8.41.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^6.1.1",
     "htmlhint": "^1.1.4",
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "stylelint": "^15.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
+    "stylelint": "^15.6.2",
     "stylelint-config-standard-scss": "^9.0.0",
     "stylelint-selector-bem-pattern": "^2.1.1"
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^5.0.0",
-    "autoprefixer": "^10.4.8",
+    "autoprefixer": "^10.4.14",
     "lozad": "^1.16.0",
-    "postcss": "^8.4.19",
-    "postcss-cli": "^10.0.0"
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0"
   },
   "lint-staged": {
     "*.js": "eslint",
