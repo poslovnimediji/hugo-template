@@ -71,5 +71,5 @@ See (How to Enable Netlify Large Media on a Project)[https://github.com/poslovni
 ## Built With
 
 * [Hugo](https://gohugo.io/)
-* [Decap CMS](https://decapcms.org/)
+* [Netlify CMS](https://www.netlifycms.org/)
 * [Netlify](https://www.netlify.com)
