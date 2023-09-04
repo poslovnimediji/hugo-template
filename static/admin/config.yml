@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   name: git-gateway
-  branch: main
+  branch: __BRANCH__
   squash_merges: true
 
 display_url: https://hugo-template.netlify.app/
