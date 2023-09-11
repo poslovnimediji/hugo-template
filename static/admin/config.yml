@@ -17,7 +17,7 @@ slug:
 aliases:
   - &VISIBLE_IN_CMS {name: visibleInCMS, widget: hidden, default: true}
 
-# https://www.netlifycms.org/docs/configuration-options/#publish-mode
+# https://decapcms.org/docs/configuration-options/#publish-mode
 # publish_mode: editorial_workflow
 
 collections:
