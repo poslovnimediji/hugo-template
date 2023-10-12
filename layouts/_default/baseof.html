@@ -27,6 +27,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">
 
+  <!-- Don't let bots index non-production URLs -->
+  {{ if ne (getenv "CONTEXT") "production" }}
+    <meta name="robots" content="noindex">
+  {{ end }}
+
   <!-- Primary Meta Tags -->
   <title>{{ cond (eq .IsHome true) .Site.Title (print .Title " | " .Site.Title) }}</title>
   <meta name="description" content="{{ $ogDesc }}">
