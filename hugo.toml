@@ -22,3 +22,6 @@ image = "/media/brand/og-image.jpg"
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[security.funcs]
+getenv = ["^HUGO_", "CONTEXT"]
