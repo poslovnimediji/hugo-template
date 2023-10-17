@@ -3,6 +3,7 @@ local_backend: true
 backend:
   name: github
   repo: poslovnimediji/hugo-template
+  auth_scope: repo
   open_authoring: true
   branch: decap-test
   squash_merges: true
