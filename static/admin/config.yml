@@ -1,9 +1,14 @@
 local_backend: true
 
 backend:
-  name: git-gateway
-  branch: __BRANCH__
+  name: github
+  repo: poslovnimediji/hugo-template
+  open_authoring: true
+  branch: decap-test
   squash_merges: true
+
+# https://decapcms.org/docs/configuration-options/#publish-mode
+publish_mode: editorial_workflow
 
 display_url: https://hugo-template.netlify.app/
 logo_url: /media/brand/logo.svg
@@ -16,9 +21,6 @@ slug:
 
 aliases:
   - &VISIBLE_IN_CMS {name: visibleInCMS, widget: hidden, default: true}
-
-# https://decapcms.org/docs/configuration-options/#publish-mode
-# publish_mode: editorial_workflow
 
 collections:
   - name: posts
