@@ -64,9 +64,11 @@ See [How to Configure Github Actions on a Site](https://github.com/poslovnimedij
 
 See [How to enable Netlify Identity for Decap CMS on a site](https://github.com/poslovnimediji/knowledgebase/wiki/How-to-enable-Netlify-Identity-for-Decap-CMS-on-a-site).
 
-### Enable Netlify Large Media
+### Netlify Large Media
 
-See (How to Enable Netlify Large Media on a Project)[https://github.com/poslovnimediji/knowledgebase/wiki/How-to-Enable-Netlify-Large-Media-on-a-Project]
+Netlify large media is (deprecated)[https://answers.netlify.com/t/large-media-feature-deprecated-but-not-removed/100804]
+
+Don't use it with new projects anymore. Preferably use cloudinary instead
 
 ## Built With
 
