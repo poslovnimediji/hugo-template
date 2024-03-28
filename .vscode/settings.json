@@ -16,7 +16,7 @@
     "scss"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "javascript.format.semicolons": "remove",
   "typescript.format.semicolons": "remove"
