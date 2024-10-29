@@ -16,7 +16,7 @@ This repository is set up to be developed with [Visual Studio Code](https://code
 
 If this is your first time running the project, run
 
-`npm install` and `npx husky install`
+`npx husky init`
 
 When you have that run one of these commands for local dev server:
 

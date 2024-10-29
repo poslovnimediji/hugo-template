@@ -7,7 +7,7 @@
     "dev": "hugo server",
     "build": "hugo",
     "lint": "npx htmlhint 'layouts/**/*.html' & npx eslint . & npx stylelint \"assets/styles/*.scss\"",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -20,23 +20,20 @@
   },
   "homepage": "https://github.com/poslovnimediji/hugo-template#readme",
   "devDependencies": {
-    "eslint": "^8.41.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^16.0.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
     "htmlhint": "^1.1.4",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "stylelint": "^15.11.0",
-    "stylelint-config-standard-scss": "^11.1.0"
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "neostandard": "^0.11.7",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0"
   },
   "dependencies": {
-    "@fullhuman/postcss-purgecss": "^5.0.0",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.31",
-    "postcss-cli": "^10.1.0"
+    "@fullhuman/postcss-purgecss": "^6.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0"
   },
   "lint-staged": {
     "*.js": "eslint",
