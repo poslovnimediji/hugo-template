@@ -31,3 +31,17 @@ $breakpoints: (
     @warn "No value could be retrieved from `#{$breakpoint}`. Make sure it is defined in `$breakpoints` map.";
   }
 }
+
+@each $breakpoint, $value in $breakpoints {
+  @include breakpoint-up($breakpoint) {
+    .is-hidden-#{$breakpoint}-up {
+      display: none !important;
+    }
+  }
+
+  @include breakpoint-down($breakpoint) {
+    .is-hidden-#{$breakpoint}-down {
+      display: none !important;
+    }
+  }
+}
