@@ -5,10 +5,10 @@
 }}
 
 {{ $scss := resources.Get "styles/style.scss" }}
-{{ $style := $scss | resources.ExecuteAsTemplate "style-parsed.scss" . | toCSS $options }}
+{{ $style := $scss | resources.ExecuteAsTemplate "style-parsed.scss" . | toCSS $options | postCSS }}
 
-{{- if (eq (getenv "HUGO_ENV") "production") -}}
-  {{- $style = $style | postCSS | minify | fingerprint "md5" -}}
-{{- end -}}
+{{ if hugo.IsProduction }} 
+  {{- $style = $style | minify | fingerprint | resources.PostProcess -}}
+{{ end }}
 
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">
