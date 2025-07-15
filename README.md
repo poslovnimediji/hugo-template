@@ -33,11 +33,43 @@ We follow the standard Javascript style.
 ### Linters
 
 There are 3 linters set up:
-- [stylelint](https://stylelint.io/) for CSS
-- [eslint](https://eslint.org/) for JS
+- [stylelint](https://stylelint.io/) for CSS/SCSS
+- [eslint](https://eslint.org/) for JavaScript
 - [htmlhint](https://htmlhint.com/) for HTML
 
-If quick fixes are possible, VS Code will fix them on save. A pre-commit git hook is also in place. It triggers all 3 linters on staged files, and if there are errors, it prevents the commit.
+#### Linter Configuration Files
+
+- `stylelint.config.js` - Stylelint configuration using ES modules
+- `eslint.config.js` - ESLint configuration using ES modules  
+- `.htmlhintrc` - HTMLHint configuration
+
+#### Running Linters
+
+```bash
+# Run all linters
+npm run lint
+
+# Run individual linters
+npx stylelint "**/*.scss"
+npx eslint .
+npx htmlhint 'layouts/**/*.html'
+```
+
+#### Auto-fixing
+
+Linters will automatically fix issues when possible:
+- **VS Code**: Auto-fixes on save (if recommended extensions are installed)
+- **Command line**: Use `--fix` flag with eslint and stylelint
+- **Pre-commit hook**: Automatically runs lint-staged which fixes staged files
+
+#### Pre-commit Hook
+
+A pre-commit git hook is configured using [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/okonet/lint-staged). It:
+- Runs linters only on staged files for better performance
+- Auto-fixes issues when possible
+- Prevents commits if there are unfixable errors
+
+The hook configuration is in `.husky/pre-commit` and runs `npx lint-staged`, which uses the `lint-staged` configuration in `package.json`.
 
 ## Deployment
 
@@ -75,3 +107,17 @@ Don't use it with new projects anymore. Preferably use cloudinary instead
 * [Hugo](https://gohugo.io/)
 * [Decap CMS](https://decapcms.org/)
 * [Netlify](https://www.netlify.com)
+
+## Dependencies
+
+**Last updated:** July 2025: all dependencies are on their latest versions.
+
+Key development dependencies:
+- ESLint 9.13.0 with neostandard configuration
+- Stylelint 16.10.0 with SCSS support
+- HTMLHint 1.1.4
+- Husky 9.1.6 for Git hooks
+- lint-staged 16.1.2 for pre-commit linting
+- PostCSS 8.5.6 with PurgeCSS and Autoprefixer
+
+The project uses ES modules (`"type": "module"`) for modern JavaScript configuration files.
