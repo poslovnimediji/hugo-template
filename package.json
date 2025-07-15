@@ -1,12 +1,13 @@
 {
   "name": "hugo-template",
   "version": "1.1.0",
+  "type": "module",
   "description": "Template project for sites built with Hugo, Decap, and Netlify",
   "main": "index.js",
   "scripts": {
     "dev": "hugo server",
     "build": "hugo",
-    "lint": "npx htmlhint 'layouts/**/*.html' & npx eslint . & npx stylelint \"assets/styles/*.scss\"",
+    "lint": "npx htmlhint 'layouts/**/*.html' && npx eslint . && npx stylelint **/*.scss",
     "prepare": "husky"
   },
   "repository": {
