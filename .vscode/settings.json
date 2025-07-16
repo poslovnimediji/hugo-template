@@ -15,8 +15,9 @@
     "postcss",
     "scss"
   ],
+  "stylelint.configFile": "stylelint.config.js",
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
+    "source.fixAll.stylelint": "explicit"
   },
   "javascript.format.semicolons": "remove",
   "typescript.format.semicolons": "remove"
