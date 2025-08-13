@@ -102,6 +102,10 @@ Netlify large media is (deprecated)[https://answers.netlify.com/t/large-media-fe
 
 Don't use it with new projects anymore. Preferably use cloudinary instead
 
+### Hugo shims dependencies
+
+See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowledgebase/wiki/Hugo-shims-dependencies). 
+
 ## Built With
 
 * [Hugo](https://gohugo.io/)
