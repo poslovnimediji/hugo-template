@@ -1,8 +1,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/258a10dd-ef97-4e72-80ed-9d7efc84d8a8/deploy-status)](https://app.netlify.com/sites/hugo-template/deploys)
 
-# Hugo Template
+# hugo-template
 
-Template project for sites built with Hugo, Decap, and Netlify
+Template repository for Jamstack projects.
 
 * Client:
 * Netlify URL: https://hugo-template.netlify.app/
