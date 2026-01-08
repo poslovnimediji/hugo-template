@@ -5,6 +5,7 @@ export default {
     'at-rule-empty-line-before': null,
     'at-rule-no-unknown': null,
     'color-function-notation': 'legacy',
+    'color-function-alias-notation': null, // Disable to prevent rgba() to rgb() conversion
     'media-feature-range-notation': 'prefix',
     'scss/no-global-function-names': null,
     'scss/at-extend-no-missing-placeholder': null,
