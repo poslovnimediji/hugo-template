@@ -27,18 +27,18 @@ $columns-count: 12;
 .grid {
   display: grid;
   grid-template-columns: repeat($columns-count, minmax(0, 1fr));
-  grid-gap: var(--grid-row-gap) var(--grid-column-gap);
+  gap: var(--grid-row-gap) var(--grid-column-gap);
 
   &.no-gap {
-    grid-gap: 0;
+    gap: 0;
   }
 
   &.no-row-gap {
-    grid-row-gap: 0;
+    row-gap: 0;
   }
 
   &.no-column-gap {
-    grid-column-gap: 0;
+    column-gap: 0;
   }
 
   &.align-items-center {
