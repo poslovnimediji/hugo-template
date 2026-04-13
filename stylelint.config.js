@@ -15,7 +15,5 @@ export default {
     'static/vendor/*',
     'public',
     'resources',
-    'assets/styles/style.scss',
-    'layouts/partials/base/font-faces.css',
   ],
 }
