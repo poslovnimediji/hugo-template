@@ -1,4 +1,3 @@
-/* stylelint-disable */
 {{ range readDir "static/fonts" }}
   {{ if and (not .IsDir) (eq (path.Ext .Name) ".woff2") }}
     {{ $fileName := .Name }}
