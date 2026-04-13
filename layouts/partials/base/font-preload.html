@@ -1,0 +1,5 @@
+{{ range readDir "static/fonts" }}
+	{{ if and (not .IsDir) (eq (path.Ext .Name) ".woff2") }}
+		<link rel="preload" href="{{ printf "/fonts/%s" .Name }}" as="font" type="font/woff2" crossorigin>
+	{{ end }}
+{{ end }}

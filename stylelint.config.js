@@ -11,5 +11,11 @@ export default {
     'scss/at-extend-no-missing-placeholder': null,
     'selector-class-pattern': null,
   },
-  ignoreFiles: ['static/vendor/*', 'public', 'resources'],
+  ignoreFiles: [
+    'static/vendor/*',
+    'public',
+    'resources',
+    'assets/styles/style.scss',
+    'layouts/partials/base/font-faces.css',
+  ],
 }

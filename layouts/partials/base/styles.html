@@ -7,7 +7,7 @@
 {{ $scss := resources.Get "styles/style.scss" }}
 {{ $style := $scss | resources.ExecuteAsTemplate "style-parsed.scss" . | toCSS $options | postCSS }}
 
-{{ if hugo.IsProduction }} 
+{{ if hugo.IsProduction }}
   {{- $style = $style | minify | fingerprint | resources.PostProcess -}}
 {{ end }}
 
