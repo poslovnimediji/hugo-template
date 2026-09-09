@@ -136,5 +136,8 @@ Key development dependencies:
 - Husky 9 for Git hooks, lint-staged 17 for pre-commit linting
 - PostCSS 8 with PurgeCSS 8 and Autoprefixer — `postcss-cli` is **required**: Hugo's
   `| postCSS` pipe shells out to `node_modules/.bin/postcss`
+- `sass-embedded` — the Dart Sass binary Hugo's `dartsass` transpiler needs. Hugo does
+  **not** bundle Dart Sass (extended ships LibSass only), so `bin/with-dart-sass.sh` puts
+  it on `PATH` and every build entry point goes through that wrapper
 
 The project uses ES modules (`"type": "module"`) for its configuration files.

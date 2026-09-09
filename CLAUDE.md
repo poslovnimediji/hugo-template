@@ -44,10 +44,21 @@ binaries, linters and source files that Hugo pulls in.
   **`assets/styles/style.scss` is a Hugo template** — but only that file. Partials it
   `@use`s are read straight off disk by Sass and never see the template engine, so
   `{{ }}` works in `style.scss` and nowhere else.
-- **Sass is Dart Sass** (`transpiler: "dartsass"`, bundled with Hugo extended). Use the
-  module system — `@use` with `sass:math` / `sass:map` / `sass:meta`, not `@import`,
-  `map-get` or `/` division. Each partial must `@use` what it needs; `style.scss`
-  loading something does not put it in scope elsewhere.
+- **Sass is Dart Sass** (`transpiler: "dartsass"`). Use the module system — `@use` with
+  `sass:math` / `sass:map` / `sass:meta`, not `@import`, `map-get` or `/` division. Each
+  partial must `@use` what it needs; `style.scss` loading something does not put it in
+  scope elsewhere.
+- **Dart Sass is NOT bundled with Hugo.** Hugo extended ships LibSass only; the `dartsass`
+  transpiler shells out to a Dart Sass binary on `PATH`. That binary comes from the
+  `sass-embedded` devDependency, and `bin/with-dart-sass.sh` puts it on `PATH` — every
+  entry point (`npm run dev`, `npm run build`, `bin/build.sh`) goes through that wrapper.
+  Never call `hugo` bare in a script or CI step: without the wrapper the build dies with
+  `TOCSS-DART: ... You need to install Dart Sass` and **exit code 2**. Note npm links only
+  the pure-JS `sass` into `node_modules/.bin`, which cannot speak `--embedded`; the usable
+  native binary lives in `node_modules/sass-embedded-<platform>/dart-sass/`.
+- A machine with its own Dart Sass (e.g. `brew install sass`) will build fine even if the
+  wrapper is bypassed. **That hides the breakage** — verify pipeline changes with a PATH
+  that excludes it, or trust only the Netlify preview.
 - **Breakpoints live in `hugo.toml` only.** `[params.breakpoints]` is sorted by
   `layouts/partials/base/breakpoints.html` and passed into `grid/_breakpoints.scss` via
   `@use ... with`. Never hardcode a breakpoint in Sass — `_breakpoints.scss` `@error`s if
