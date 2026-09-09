@@ -1,8 +1,11 @@
 {{ define "main" }}
 
 <div class="container">
-  <h1>404</h1>
-  <p>Izgubili ste se. Pojdite nazaj <a href="/">domov</a>.</p>
+  <h1>{{ T "not-found-title" }}</h1>
+  <p>
+    {{ T "not-found-message" }}
+    <a href="{{ "/" | relURL }}">{{ T "back-home" }}</a>
+  </p>
 </div>
 
 {{ end }}
