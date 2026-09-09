@@ -4,9 +4,9 @@
 
 Template repository for Jamstack projects.
 
-* Client:
-* Netlify URL: https://hugo-template.netlify.app/
-* Production URL:
+- Client:
+- Netlify URL: https://hugo-template.netlify.app/
+- Production URL:
 
 ## Installing
 
@@ -32,16 +32,18 @@ We follow the standard Javascript style.
 
 ### Linters
 
-There are 3 linters set up:
+There are 2 linters set up:
+
 - [stylelint](https://stylelint.io/) for CSS/SCSS
 - [eslint](https://eslint.org/) for JavaScript
-- [htmlhint](https://htmlhint.com/) for HTML
+
+Hugo templates are not linted. htmlhint was removed because the rules that survive Hugo's
+`{{ }}` syntax caught almost nothing; add it back per project if you want it.
 
 #### Linter Configuration Files
 
 - `stylelint.config.js` - Stylelint configuration using ES modules
-- `eslint.config.js` - ESLint configuration using ES modules  
-- `.htmlhintrc` - HTMLHint configuration
+- `eslint.config.js` - ESLint configuration using ES modules
 
 #### Running Linters
 
@@ -52,12 +54,12 @@ npm run lint
 # Run individual linters
 npx stylelint "**/*.scss"
 npx eslint .
-npx htmlhint 'layouts/**/*.html'
 ```
 
 #### Auto-fixing
 
 Linters will automatically fix issues when possible:
+
 - **VS Code**: Auto-fixes on save (if recommended extensions are installed)
 - **Command line**: Use `--fix` flag with eslint and stylelint
 - **Pre-commit hook**: Automatically runs lint-staged which fixes staged files
@@ -65,6 +67,7 @@ Linters will automatically fix issues when possible:
 #### Pre-commit Hook
 
 A pre-commit git hook is configured using [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/okonet/lint-staged). It:
+
 - Runs linters only on staged files for better performance
 - Auto-fixes issues when possible
 - Prevents commits if there are unfixable errors
@@ -104,24 +107,37 @@ Don't use it with new projects anymore. Preferably use cloudinary instead
 
 ### Hugo shims dependencies
 
-See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowledgebase/wiki/Hugo-shims-dependencies). 
+See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowledgebase/wiki/Hugo-shims-dependencies).
 
 ## Built With
 
-* [Hugo](https://gohugo.io/)
-* [Decap CMS](https://decapcms.org/)
-* [Netlify](https://www.netlify.com)
+- [Hugo](https://gohugo.io/)
+- [Decap CMS](https://decapcms.org/)
+- [Netlify](https://www.netlify.com)
 
 ## Dependencies
 
-**Last updated:** July 2025: all dependencies are on their latest versions.
+**Last updated:** September 2026 — all dependencies are on their latest versions and
+`npm audit` reports 0 vulnerabilities.
+
+npm carries **no runtime dependencies**. Hugo owns the asset pipeline; the `devDependencies`
+supply the binaries it shells out to, the linters, and `modern-normalize` (loaded from
+`node_modules` by `assets/styles/style.scss` rather than vendored, so it stays updatable).
+
+[Dependabot](.github/dependabot.yml) groups routine dev-dependency bumps into one weekly
+PR and security fixes into another, so advisories in transitive packages don't arrive as
+a burst of near-identical lockfile PRs.
 
 Key development dependencies:
-- ESLint 9.13.0 with neostandard configuration
-- Stylelint 16.10.0 with SCSS support
-- HTMLHint 1.1.4
-- Husky 9.1.6 for Git hooks
-- lint-staged 16.1.2 for pre-commit linting
-- PostCSS 8.5.6 with PurgeCSS and Autoprefixer
 
-The project uses ES modules (`"type": "module"`) for modern JavaScript configuration files.
+- ESLint 10 with `@eslint/js` + `@stylistic/eslint-plugin` (JavaScript Standard Style)
+- Stylelint 17 with `stylelint-config-standard-scss` 17
+- modern-normalize 3 (CSS reset, compiled in via Dart Sass)
+- Husky 9 for Git hooks, lint-staged 17 for pre-commit linting
+- PostCSS 8 with PurgeCSS 8 and Autoprefixer — `postcss-cli` is **required**: Hugo's
+  `| postCSS` pipe shells out to `node_modules/.bin/postcss`
+- `sass-embedded` — the Dart Sass binary Hugo's `dartsass` transpiler needs. Hugo does
+  **not** bundle Dart Sass (extended ships LibSass only), so `bin/with-dart-sass.sh` puts
+  it on `PATH` and every build entry point goes through that wrapper
+
+The project uses ES modules (`"type": "module"`) for its configuration files.

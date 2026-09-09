@@ -1,7 +1,12 @@
-{{/*  {{ $externalLinks := resources.Get "/scripts/external-links.js" }}
+{{ $externalLinks := resources.Get "scripts/external-links.js" }}
 
 {{ $bundleItems := slice $externalLinks }}
 
-{{ $bundleJs := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build (dict "sourcemap" "inline") }}
+{{ $options := dict "sourcemap" (cond hugo.IsProduction "none" "inline") }}
+{{ $bundle := $bundleItems | resources.Concat "scripts/bundle.js" | js.Build $options }}
 
-<script defer src="{{ $bundleJs.RelPermalink }}"></script>  */}}
+{{ if hugo.IsProduction }}
+  {{- $bundle = $bundle | minify | fingerprint -}}
+{{ end }}
+
+<script defer src="{{ $bundle.RelPermalink }}"></script>

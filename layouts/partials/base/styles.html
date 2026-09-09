@@ -1,6 +1,7 @@
 {{ $options := dict
+  "transpiler" "dartsass"
   "targetPath" "styles/style.css"
-  "enableSourceMap" true
+  "enableSourceMap" (not hugo.IsProduction)
   "includePaths" (slice "node_modules")
 }}
 

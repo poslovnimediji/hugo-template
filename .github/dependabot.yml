@@ -1,0 +1,38 @@
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+#
+# Grouping matters here: every npm package in this repo is build-time tooling, and
+# transitive advisories (brace-expansion, js-yaml, nanoid) tend to land as a burst of
+# near-identical lockfile-only PRs. One grouped PR a month is reviewable; ten are not.
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      # Routine minor/patch bumps: one PR a month for the whole toolchain.
+      dev-dependencies:
+        applies-to: version-updates
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      # Security fixes: one PR, raised as soon as an advisory lands.
+      security:
+        applies-to: security-updates
+        patterns:
+          - "*"
+    # Majors are deliberately left ungrouped — they need to be read one at a time.
+
+  # No workflows ship with the template; CI is added per project. This entry means
+  # actions start being tracked the moment one is.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "chore(deps)"
