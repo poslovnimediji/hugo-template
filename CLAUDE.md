@@ -82,6 +82,10 @@ binaries, linters and source files that Hugo pulls in.
 a local build at that exact version before changing it, since Hugo governs the actual
 site output.
 
+There is deliberately **no Dependabot config**: dependencies are updated by hand (see
+README → Dependencies), because a bot config in a template follows every seeded client
+repo. Don't add one back.
+
 Node is deliberately **not** pinned. Netlify's build image supplies it, and the toolchain
 needs Node >= 22.13 (eslint 10, postcss-cli 12). Current build images default to 24, but
 Netlify pins a site to its image's default at creation time, so a long-lived site can sit
@@ -116,8 +120,8 @@ Only `HUGO_*` and `CONTEXT` env vars are readable from templates —
 ## Gotchas worth knowing
 
 - Decap CMS and Netlify Identity load from CDNs at unpinned versions
-  (`decap-cms@^3.0.0` from unpkg) in `static/admin/index.html`. Dependabot cannot see
-  them, and that page holds git write access via git-gateway. A `/admin/` breakage with
+  (`decap-cms@^3.0.0` from unpkg) in `static/admin/index.html`. No lockfile or
+  `npm audit` covers them, and that page holds git write access via git-gateway. A `/admin/` breakage with
   no matching commit is almost always an upstream release, not this repo.
 - `layouts/partials/base/unsupported-browser.html` carries an **ES5 inline script** — it
   runs on the browsers it is warning about, so no `const`, arrow functions or template

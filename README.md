@@ -124,9 +124,14 @@ npm carries **no runtime dependencies**. Hugo owns the asset pipeline; the `devD
 supply the binaries it shells out to, the linters, and `modern-normalize` (loaded from
 `node_modules` by `assets/styles/style.scss` rather than vendored, so it stays updatable).
 
-[Dependabot](.github/dependabot.yml) groups routine dev-dependency bumps into one weekly
-PR and security fixes into another, so advisories in transitive packages don't arrive as
-a burst of near-identical lockfile PRs.
+Dependencies are updated by hand, deliberately — there is no Dependabot config. This repo
+seeds client projects, and a bot config would follow every one of them, opening PRs on
+sites nobody is actively working on. When updating:
+
+- `npm outdated` / `npm audit` for the dev dependencies, then `npm run lint` and a build
+- `HUGO_VERSION` in `netlify.toml` — bump only after a local build at that exact version
+- Decap CMS and Netlify Identity load unpinned from CDNs in `static/admin/index.html`, so
+  they float to new releases on their own; nothing to bump, but worth a look after one
 
 Key development dependencies:
 
