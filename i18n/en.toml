@@ -3,3 +3,18 @@ other = "Skip to main content"
 
 [more]
 other = "More"
+
+[dismiss]
+other = "Dismiss"
+
+[unsupported-browser]
+other = "Your browser is out of date, so this site may not look or work as intended. Please update to a newer version."
+
+[not-found-title]
+other = "Page not found"
+
+[not-found-message]
+other = "We couldn't find the page you were looking for."
+
+[back-home]
+other = "Go back home"

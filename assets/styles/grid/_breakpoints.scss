@@ -1,34 +1,38 @@
-$breakpoints: (
-  "xs": 576px,
-  "sm": 768px,
-  "md": 992px,
-  "lg": 1200px,
-  "xl": 1440px,
-  "xxl": 1680px,
-  "xxxl": 1920px
-);
+@use "sass:list";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+
+// Configured by assets/styles/style.scss from [params.breakpoints] in hugo.toml.
+// Do not hardcode values here — hugo.toml is the single source of truth, so that
+// templates reading site.Params.breakpoints and the CSS can never drift apart.
+$breakpoints: () !default;
+
+@if list.length($breakpoints) == 0 {
+  @error "No breakpoints configured — they are injected by assets/styles/style.scss from [params.breakpoints] in hugo.toml.";
+}
 
 @mixin breakpoint-up($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get($breakpoints, $breakpoint);
 
   @if $value {
     @media (min-width: $value) {
       @content;
     }
   } @else {
-    @warn "No value could be retrieved from `#{$breakpoint}`. Make sure it is defined in `$breakpoints` map.";
+    @warn "No value could be retrieved from `#{$breakpoint}`. Make sure it is defined in [params.breakpoints] in hugo.toml.";
   }
 }
 
 @mixin breakpoint-down($breakpoint) {
-  $value: map-get($breakpoints, $breakpoint);
+  $value: map.get($breakpoints, $breakpoint);
 
   @if $value {
     @media (max-width: ($value - 1)) {
       @content;
     }
   } @else {
-    @warn "No value could be retrieved from `#{$breakpoint}`. Make sure it is defined in `$breakpoints` map.";
+    @warn "No value could be retrieved from `#{$breakpoint}`. Make sure it is defined in [params.breakpoints] in hugo.toml.";
   }
 }
 
@@ -47,37 +51,37 @@ $breakpoints: (
 }
 
 @function get-breakpoint($bp) {
-  @if type-of($bp) == 'number' {
+  @if meta.type-of($bp) == "number" {
     @return $bp;
-  } @else if map-has-key($breakpoints, $bp) {
-    @return map-get($breakpoints, $bp);
+  } @else if map.has-key($breakpoints, $bp) {
+    @return map.get($breakpoints, $bp);
   } @else {
-    @error 'Breakpoint "#{$bp}" not found in $breakpoints map.';
+    @error "Breakpoint \"#{$bp}\" not found in [params.breakpoints] in hugo.toml.";
   }
 }
 
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+  @if meta.type-of($number) == "number" and not math.is-unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
   }
+
   @return $number;
 }
 
 @function clamp-bp($min-bp, $max-bp, $min-size, $max-size) {
   $min-bp-px: strip-unit(get-breakpoint($min-bp));
   $max-bp-px: strip-unit(get-breakpoint($max-bp));
-  
-  // Calculate the slope for the linear interpolation
-  $slope: round(($max-size - $min-size) / ($max-bp-px - $min-bp-px) * 1000) / 1000;
-  
-  // Calculate the y-intercept
-  $intercept: round(($min-size - $slope * $min-bp-px) * 1000) / 1000;
-  
-  // Generate the clamp rule
+
+  // Slope for the linear interpolation between the two breakpoints
+  $slope: math.div(math.round(math.div($max-size - $min-size, $max-bp-px - $min-bp-px) * 1000), 1000);
+
+  // y-intercept
+  $intercept: math.div(math.round(($min-size - $slope * $min-bp-px) * 1000), 1000);
+
   @return clamp(#{$min-size}px, calc(#{$intercept}px + #{$slope * 100}vw), #{$max-size}px);
 }
 
 // Example usage of clamp-bp function
 // .component {
-//   font-size: clamp-bp('sm', 'lg', 20, 40);
+//   font-size: clamp-bp("sm", "lg", 20, 40);
 // }

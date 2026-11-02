@@ -1,6 +1,6 @@
 title = "hugo-template"
 disableFastRender = true
-languageCode = "en-en"
+locale = "en-150"
 defaultContentLanguage = "en"
 
 [params]

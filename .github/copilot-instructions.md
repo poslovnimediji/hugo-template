@@ -41,7 +41,7 @@ This is a Hugo-based static site with Decap CMS integration, deployed via Netlif
 ```bash
 npm run dev  # Runs: hugo server (local dev at http://localhost:1313)
 npm run build  # Runs: hugo (builds to public/)
-npm run lint  # Runs all linters: htmlhint, eslint, stylelint
+npm run lint  # Runs all linters: eslint, stylelint
 ```
 
 **Pre-commit Hook:**
@@ -65,12 +65,14 @@ Use Block-Element-Modifier for all CSS classes. Example:
 ```
 
 **SCSS Structure ([assets/styles/style.scss](assets/styles/style.scss)):**
-- Import order matters: normalize → grid → utilities → components
+- Dart Sass module system: `@use`, not `@import`. Each partial `@use`s what it needs.
+- Load order matters (it is the cascade order): normalize → grid → utilities → components
 - Component files: `_base.scss`, `_button.scss`, `_header.scss`, etc.
 - **PM Grid System** ([assets/styles/grid/](assets/styles/grid/)):
   - Custom 12-column grid using CSS Grid
   - Responsive classes: `col-12 col-sm-6 col-lg-4`
-  - Breakpoints defined in `hugo.toml`
+  - Breakpoints defined **only** in `hugo.toml` (`[params.breakpoints]`) and injected into
+    Sass by [style.scss](assets/styles/style.scss) — never hardcode them in SCSS
   - Grid variables: `--container-padding`, `--content-width`, `--grid-row-gap`, `--grid-column-gap`
   - See [assets/styles/grid/README.md](assets/styles/grid/README.md) for offset/order utilities
 
@@ -84,9 +86,9 @@ Use Block-Element-Modifier for all CSS classes. Example:
 - Optional Vue.js or Alpine.js components for interactivity (not included by default)
 
 **Linting:**
-- **eslint** ([eslint.config.js](eslint.config.js)): Uses neostandard preset
-- **htmlhint** for template linting
-- Auto-fixes on save or with `eslint --fix` / `htmlhint --fix`
+- **eslint** ([eslint.config.js](eslint.config.js)): `@eslint/js` recommended + `@stylistic` configured to JavaScript Standard Style
+- Auto-fixes on save or with `eslint --fix`
+- Hugo templates are not linted
 
 ### HTML & Templates
 
@@ -130,7 +132,9 @@ ogTags:
 ## External Dependencies & Integrations
 
 **Build-Time:**
-- **PostCSS** ([postcss.config.js](postcss.config.js)): Autoprefixer, PurgeCSS
+- **PostCSS** ([postcss.config.js](postcss.config.js)): Autoprefixer, PurgeCSS. PurgeCSS
+  scans `content/` through a custom extractor that reads only `class=` / `extraClass=`
+  attributes; classes built dynamically in JS must go in its `safelist`.
 
 **CMS:**
 - **Decap CMS** - Requires Netlify Identity setup (see README.md)

@@ -1,14 +1,27 @@
-@import
-  "modern-normalize",
-  "grid/breakpoints",
-  "grid/grid",
-  "spacings",
-  "colors",
-  "typography",
-  "base",
-  "skip-to-content",
-  "helpers",
-  "header",
-  "main-menu",
-  "footer",
-  "button";
+@use "modern-normalize/modern-normalize.css";
+
+// Breakpoints have a single source of truth: [params.breakpoints] in hugo.toml.
+// This file is run through Hugo's template engine before Sass sees it (see
+// layouts/partials/base/styles.html), so the map below is generated at build time —
+// edit hugo.toml, not this file. Sorting happens in the partial; see it for why.
+@use "grid/breakpoints" with (
+  $breakpoints: (
+    {{- range partial "base/breakpoints" . }}
+    "{{ .name }}": {{ .px }}px,
+    {{- end }}
+  )
+);
+
+// Load order is the CSS cascade order: normalize -> grid -> utilities -> components.
+@use "grid/grid";
+@use "spacings";
+@use "colors";
+@use "typography";
+@use "base";
+@use "skip-to-content";
+@use "helpers";
+@use "header";
+@use "main-menu";
+@use "footer";
+@use "button";
+@use "unsupported-browser";

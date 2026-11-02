@@ -1,0 +1,16 @@
+{{- /*
+  Returns [params.breakpoints] from hugo.toml as a slice sorted by width, ascending.
+
+  Hugo iterates maps in key order, which for these names is alphabetical
+  (lg, md, sm, xl, xs, xxl, xxxl) — emitting min-width media queries in that order
+  would put narrow breakpoints last and let them override wide ones. Sorting by
+  value keeps the generated CSS in cascade order.
+
+  Consumed by assets/styles/style.scss via resources.ExecuteAsTemplate.
+*/ -}}
+
+{{- $breakpoints := slice -}}
+{{- range $name, $px := site.Params.breakpoints -}}
+  {{- $breakpoints = $breakpoints | append (dict "name" $name "px" $px) -}}
+{{- end -}}
+{{- return sort $breakpoints "px" -}}

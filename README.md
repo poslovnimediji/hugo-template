@@ -4,9 +4,9 @@
 
 Template repository for Jamstack projects.
 
-* Client:
-* Netlify URL: https://hugo-template.netlify.app/
-* Production URL:
+- Client:
+- Netlify URL: https://hugo-template.netlify.app/
+- Production URL:
 
 ## Installing
 
@@ -32,16 +32,18 @@ We follow the standard Javascript style.
 
 ### Linters
 
-There are 3 linters set up:
+There are 2 linters set up:
+
 - [stylelint](https://stylelint.io/) for CSS/SCSS
 - [eslint](https://eslint.org/) for JavaScript
-- [htmlhint](https://htmlhint.com/) for HTML
+
+Hugo templates are not linted. htmlhint was removed because the rules that survive Hugo's
+`{{ }}` syntax caught almost nothing; add it back per project if you want it.
 
 #### Linter Configuration Files
 
 - `stylelint.config.js` - Stylelint configuration using ES modules
-- `eslint.config.js` - ESLint configuration using ES modules  
-- `.htmlhintrc` - HTMLHint configuration
+- `eslint.config.js` - ESLint configuration using ES modules
 
 #### Running Linters
 
@@ -52,12 +54,12 @@ npm run lint
 # Run individual linters
 npx stylelint "**/*.scss"
 npx eslint .
-npx htmlhint 'layouts/**/*.html'
 ```
 
 #### Auto-fixing
 
 Linters will automatically fix issues when possible:
+
 - **VS Code**: Auto-fixes on save (if recommended extensions are installed)
 - **Command line**: Use `--fix` flag with eslint and stylelint
 - **Pre-commit hook**: Automatically runs lint-staged which fixes staged files
@@ -65,6 +67,7 @@ Linters will automatically fix issues when possible:
 #### Pre-commit Hook
 
 A pre-commit git hook is configured using [Husky](https://typicode.github.io/husky/) and [lint-staged](https://github.com/okonet/lint-staged). It:
+
 - Runs linters only on staged files for better performance
 - Auto-fixes issues when possible
 - Prevents commits if there are unfixable errors
@@ -104,24 +107,44 @@ Don't use it with new projects anymore. Preferably use cloudinary instead
 
 ### Hugo shims dependencies
 
-See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowledgebase/wiki/Hugo-shims-dependencies). 
+See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowledgebase/wiki/Hugo-shims-dependencies).
 
 ## Built With
 
-* [Hugo](https://gohugo.io/)
-* [Decap CMS](https://decapcms.org/)
-* [Netlify](https://www.netlify.com)
+- [Hugo](https://gohugo.io/)
+- [Decap CMS](https://decapcms.org/)
+- [Netlify](https://www.netlify.com)
 
 ## Dependencies
 
-**Last updated:** July 2025: all dependencies are on their latest versions.
+**Last updated:** November 2026 — Hugo 0.169.0 and all npm dependencies on their latest
+versions. `npm audit` reports one moderate advisory (`minimatch` < 11.0.1, a ReDoS in glob
+matching) reached through ESLint; no ESLint release accepts the fixed version yet, and it
+only runs at lint time on the repo's own config.
+
+npm carries **no runtime dependencies**. Hugo owns the asset pipeline; the `devDependencies`
+supply the binaries it shells out to, the linters, and `modern-normalize` (loaded from
+`node_modules` by `assets/styles/style.scss` rather than vendored, so it stays updatable).
+
+Dependencies are updated by hand, deliberately — there is no Dependabot config. This repo
+seeds client projects, and a bot config would follow every one of them, opening PRs on
+sites nobody is actively working on. When updating:
+
+- `npm outdated` / `npm audit` for the dev dependencies, then `npm run lint` and a build
+- `HUGO_VERSION` in `netlify.toml` — bump only after a local build at that exact version
+- Decap CMS and Netlify Identity load unpinned from CDNs in `static/admin/index.html`, so
+  they float to new releases on their own; nothing to bump, but worth a look after one
 
 Key development dependencies:
-- ESLint 9.13.0 with neostandard configuration
-- Stylelint 16.10.0 with SCSS support
-- HTMLHint 1.1.4
-- Husky 9.1.6 for Git hooks
-- lint-staged 16.1.2 for pre-commit linting
-- PostCSS 8.5.6 with PurgeCSS and Autoprefixer
 
-The project uses ES modules (`"type": "module"`) for modern JavaScript configuration files.
+- ESLint 10 with `@eslint/js` + `@stylistic/eslint-plugin` (JavaScript Standard Style)
+- Stylelint 17 with `stylelint-config-standard-scss` 17
+- modern-normalize 3 (CSS reset, compiled in via Dart Sass)
+- Husky 9 for Git hooks, lint-staged 17 for pre-commit linting
+- PostCSS 8 with PurgeCSS 8 and Autoprefixer — `postcss-cli` is **required**: Hugo's
+  `| postCSS` pipe shells out to `node_modules/.bin/postcss`
+- `sass-embedded` — the Dart Sass binary Hugo's `dartsass` transpiler needs. Hugo does
+  **not** bundle Dart Sass (extended ships LibSass only), so `bin/with-dart-sass.sh` puts
+  it on `PATH` and every build entry point goes through that wrapper
+
+The project uses ES modules (`"type": "module"`) for its configuration files.

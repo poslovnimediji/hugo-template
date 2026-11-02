@@ -1,6 +1,7 @@
 {{ $options := dict
+  "transpiler" "dartsass"
   "targetPath" "styles/style.css"
-  "enableSourceMap" true
+  "enableSourceMap" (not hugo.IsProduction)
   "includePaths" (slice "node_modules")
 }}
 
@@ -8,7 +9,7 @@
 {{ $style := $scss | resources.ExecuteAsTemplate "style-parsed.scss" . | toCSS $options | postCSS }}
 
 {{ if hugo.IsProduction }}
-  {{- $style = $style | minify | fingerprint | resources.PostProcess -}}
+  {{- $style = $style | minify | fingerprint -}}
 {{ end }}
 
 <link rel="stylesheet" href="{{ $style.RelPermalink }}">

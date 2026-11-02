@@ -1,0 +1,31 @@
+.unsupported-browser {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #ffd400;
+  color: #000;
+  font-size: 14px;
+  line-height: 1.4;
+
+  // The banner is toggled via the `hidden` attribute so it works without CSS.
+  &[hidden] {
+    display: none;
+  }
+  
+  &__message {
+    margin: 0;
+    flex: 1;
+  }
+  
+  &__dismiss {
+    flex: none;
+    padding: 0 8px;
+    border: 0;
+    background: none;
+    color: inherit;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+  }
+}
