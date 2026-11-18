@@ -3,12 +3,12 @@
 if [[ "$CONTEXT" = "production" ]]
 then
   echo ----- PRODUCTION
-  sed -i "s|__BRANCH__|${HEAD}|g" static/admin/config.yml
+  sed -i.bak "s|__BRANCH__|${HEAD}|g" static/admin/config.yml && rm -f static/admin/config.yml.bak
   sh ./bin/with-dart-sass.sh hugo --gc --minify -b "$URL"
   status=$?
 else
   echo +++++ PREVIEW
-  sed -i "s|__BRANCH__|${HEAD}|g" static/admin/config.yml
+  sed -i.bak "s|__BRANCH__|${HEAD}|g" static/admin/config.yml && rm -f static/admin/config.yml.bak
   sh ./bin/with-dart-sass.sh hugo --gc -b "$DEPLOY_PRIME_URL"
   status=$?
 fi

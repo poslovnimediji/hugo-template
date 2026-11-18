@@ -100,18 +100,16 @@ $columns-count: 12;
   }
 
   @include breakpoints.breakpoint-down($key) {
-    @for $i from 0 through $columns-count {
-      .hide-#{$key}-down {
-        display: none;
-      }
+    .hide-#{$key}-down {
+      display: none;
+    }
 
-      .no-padding-#{$key}-down {
-        padding: 0;
-      }
+    .no-padding-#{$key}-down {
+      padding: 0;
+    }
 
-      .no-margin-#{$key}-down {
-        margin: 0;
-      }
+    .no-margin-#{$key}-down {
+      margin: 0;
     }
   }
 }
