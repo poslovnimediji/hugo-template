@@ -118,9 +118,11 @@ See [How to use Hugo shims dependencies](https://github.com/poslovnimediji/knowl
 ## Dependencies
 
 **Last updated:** November 2026 — Hugo 0.169.0 and all npm dependencies on their latest
-versions. `npm audit` reports one moderate advisory (`minimatch` < 11.0.1, a ReDoS in glob
-matching) reached through ESLint; no ESLint release accepts the fixed version yet, and it
-only runs at lint time on the repo's own config.
+versions. The earlier `minimatch` advisory is resolved by the current lockfile. `npm audit`
+reports one high-severity advisory: `picomatch` ≤ 4.0.7 (GHSA-fc5q-39xc-vjpf, a ReDoS in
+extglob matching), reached through ESLint, Stylelint, PurgeCSS and postcss-cli. No patched
+version exists yet; it only runs at lint/build time on the repo's own glob patterns.
+Re-check on the next update.
 
 npm carries **no runtime dependencies**. Hugo owns the asset pipeline; the `devDependencies`
 supply the binaries it shells out to, the linters, and `modern-normalize` (loaded from
